@@ -1,0 +1,50 @@
+/* pages/home/index.wxss */
+.header {
+	width: 100%;
+	height: 270rpx;
+	border-radius: var(--td-grid-card-radius, var(--td-radius-large, 18rpx));
+	overflow: hidden;
+}
+
+.header image {
+	width: 100%;
+	height: 100%;
+}
+
+.time-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+	margin: 20rpx 0;
+	padding: 20rpx 0;
+	border-radius: var(--td-grid-card-radius, var(--td-radius-large, 18rpx));
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	background-color: var(--td-grid-bg-color, var(--td-bg-color-container, var(--td-font-white-1, #ffffff)));
+}
+
+.time-container .center-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 40rpx;
+}
+
+.time-container .center-container .top {
+	font-size: large;
+	font-weight: 600;
+}
+
+.time-container .center-container .bottom {
+	font-size: x-large;
+	font-weight: 600;
+}
+
+.time-container .center-container .bottom .day {
+	font-size: medium;
+	font-weight: 400;
+}
+
+.t-grid {
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

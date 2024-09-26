@@ -1,4 +1,4 @@
 /* pages/home/index.wxss */
 .container {
-	padding: 10rpx;
+	padding: 10rpx 10rpx 40rpx 10rpx;
 }

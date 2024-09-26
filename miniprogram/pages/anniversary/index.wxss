@@ -1,1 +1,66 @@
 /* pages/anniversary/index.wxss */
+.last-card{
+	margin-bottom: 40rpx;
+}
+.last-card::after {
+	content: "最近纪念日";
+	color: #fff;
+	text-align: center;
+	width: 200rpx;
+	height: 50rpx;
+	border-bottom-left-radius: var(--td-grid-card-radius, var(--td-radius-large, 18rpx));
+	background: #ed7b2f;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.last-card .title {
+	font-size: larger;
+	font-weight: 600;
+	color: #2c3e50;
+}
+
+.last-card .day {
+	color: var(--td-error-color, #e34d59);
+	font-size: xx-large;
+	font-weight: 900;
+	margin-top: 18rpx;
+	margin-bottom: 30rpx;
+}
+
+.last-card .day .unit {
+	color: #2c3e50;
+	font-size: large;
+	font-weight: 100;
+}
+
+.last-card .start-date {
+	color: #95a5a6;
+}
+
+.line-card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 600;
+	padding: 40rpx;
+	margin-top: 20rpx;
+}
+
+.line-card .left {
+	display: flex;
+	align-items: center;
+}
+
+.line-card .left .text {
+	margin-left: 20rpx;
+}
+
+.line-card .right .date {
+	color: #95a5a6;
+}
+.t-empty{
+	margin-top: 350rpx;
+}

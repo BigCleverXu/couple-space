@@ -5,7 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: [{
+      id: 1,
+      title: "第一次接吻",
+      date: "13"
+    }, {
+      id: 2,
+      title: "我的生日",
+      date: "173"
+    }, {
+      id: 3,
+      title: "TA的生日",
+      date: "17"
+    },]
   },
 
   /**

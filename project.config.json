@@ -3,9 +3,6 @@
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
     "urlCheck": true,
-    "useCompilerPlugins": [
-      "less"
-    ],
     "es6": true,
     "enhance": true,
     "postcss": true,

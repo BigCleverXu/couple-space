@@ -21,5 +21,5 @@
 		</block>
 	</view>
 	<t-empty wx:else icon="info-circle-filled" description="暂无纪念日，快去和TA创建吧~" />
-	<t-fab icon="add" draggable  y-bounds="{{[0, 132]}}"></t-fab>
+	<t-fab icon="add" draggable  y-bounds="{{[0, 132]}}" bind:click="toAdd"></t-fab>
 </layout>

@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/home/index",
-    "pages/anniversary/index"
+    "pages/anniversary/index",
+    "pages/anniversary/anniversary-form/index"
   ],
   "window": {
     "navigationStyle": "custom"

@@ -1,5 +1,7 @@
 <view class="container">
 	<t-navbar title="{{title}}" left-arrow="{{back}}" />
 	<slot></slot>
-	<t-footer text="Copyright created by JackXu"></t-footer>
+	<view class="t-footer">
+		<t-footer text="Copyright created by JackXu"></t-footer>
+	</view>
 </view>

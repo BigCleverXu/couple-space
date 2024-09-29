@@ -12,5 +12,6 @@
 	</view>
 	<t-grid column="{{3}}" theme="card" class="t-grid">
 		<t-grid-item text="纪念日" image="/images/icons/calendar.png" bindclick="toInfo" />
+		<t-grid-item text="今天想说" image="/images/icons/bookmark.png" bindclick="toInfo" />
 	</t-grid>
 </layout>

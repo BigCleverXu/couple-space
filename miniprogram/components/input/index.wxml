@@ -1,0 +1,5 @@
+<!--components/input/index.wxml-->
+<view class="input">
+	<view class="input__label">输入</view>
+	<t-input t-class="t-input" type="{{type}}" value="{{defaultValue}}" placeholder="{{placeholder}}" borderless="{{true}}" bind:change="change" />
+</view>

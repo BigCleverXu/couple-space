@@ -1,1 +1,5 @@
 /* pages/anniversary/anniversary-form/index.wxss */
+.t-button {
+	margin: 120rpx 0 20rpx;
+	width: 100%;
+}

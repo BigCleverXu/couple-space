@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/anniversary/anniversary-form/index",
+          "pathName": "pages/anniversary/anniversary-form/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/home/index",
           "pathName": "pages/home/index",
           "query": "",

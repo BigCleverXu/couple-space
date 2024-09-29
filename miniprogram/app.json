@@ -17,7 +17,12 @@
     "layout": "./components/layout/index",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-empty": "tdesign-miniprogram/empty/empty",
-    "t-fab": "tdesign-miniprogram/fab/fab"
+    "t-fab": "tdesign-miniprogram/fab/fab",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-button": "tdesign-miniprogram/button/button",
+    "x-input": "./components/input/index",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "x-date-time": "./components/date-time/index"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

@@ -5,9 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    formData: {
+      title: "",
+      date: new Date().getTime(),
+      dateText: ""
+    }
   },
-
+  change(e) {
+    const value = e.detail
+    const key = `formData.${e.currentTarget.dataset.name}`
+    // console.log(e);
+    this.setData({
+      [key]: value
+    })
+  },
+  changeValue(e) {
+    const value = e.detail.value
+    const key = `formData.${e.currentTarget.dataset.name}`
+    this.setData({
+      [key]: value
+    })
+  },
+  submit(e) {
+    // console.log(e);
+  },
+  delete(){
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */

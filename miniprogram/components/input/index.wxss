@@ -1,0 +1,18 @@
+/* components/input/index.wxss */
+.t-input {
+	border: 2rpx solid var(--td-component-border);
+	border-radius: 12rpx;
+}
+
+.input {
+	--td-input-vertical-padding: 24rpx;
+	background-color: var(--bg-color-demo);
+}
+
+.input__label {
+	color: var(--td-text-color-primary);
+	line-height: 40rpx;
+	margin: 0 8rpx 16rpx;
+	font-size: medium;
+	font-weight: 400;
+}

@@ -22,7 +22,8 @@
     "t-button": "tdesign-miniprogram/button/button",
     "x-input": "./components/input/index",
     "t-cell": "tdesign-miniprogram/cell/cell",
-    "x-date-time": "./components/date-time/index"
+    "x-date-time": "./components/date-time/index",
+    "x-upload": "./components/upload/index"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

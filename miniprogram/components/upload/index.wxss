@@ -1,0 +1,6 @@
+/* components/upload/index.wxss */
+.t-upload {
+	background: #fff;
+	padding: var(--td-cell-vertical-padding, 32rpx) var(--td-cell-horizontal-padding, 32rpx);
+	margin-top: -64rpx;
+}

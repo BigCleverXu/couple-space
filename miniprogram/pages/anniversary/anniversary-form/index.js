@@ -8,13 +8,14 @@ Page({
     formData: {
       title: "",
       date: new Date().getTime(),
-      dateText: ""
+      dateText: "",
+      images: []
     }
   },
   change(e) {
     const value = e.detail
     const key = `formData.${e.currentTarget.dataset.name}`
-    // console.log(e);
+    console.log(e);
     this.setData({
       [key]: value
     })
@@ -29,8 +30,8 @@ Page({
   submit(e) {
     // console.log(e);
   },
-  delete(){
-    
+  delete() {
+
   },
   /**
    * 生命周期函数--监听页面加载

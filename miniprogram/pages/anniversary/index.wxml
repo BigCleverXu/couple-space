@@ -11,7 +11,7 @@
 		<block wx:for="{{list}}">
 			<view class="line-card card">
 				<view class="left">
-					<t-icon name="pin" size="48rpx" />
+					<t-icon name="heart" size="48rpx" />
 					<text class="text">{{item.title}}</text>
 				</view>
 				<view class="right">
@@ -21,5 +21,5 @@
 		</block>
 	</view>
 	<t-empty wx:else icon="info-circle-filled" description="暂无纪念日，快去和TA创建吧~" />
-	<t-fab icon="add" draggable  y-bounds="{{[0, 132]}}" bind:click="toAdd"></t-fab>
+	<t-fab icon="add" draggable y-bounds="{{[0, 132]}}" bind:click="toAdd"></t-fab>
 </layout>

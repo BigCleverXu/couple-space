@@ -23,7 +23,9 @@
     "x-input": "./components/input/index",
     "t-cell": "tdesign-miniprogram/cell/cell",
     "x-date-time": "./components/date-time/index",
-    "x-upload": "./components/upload/index"
+    "x-upload": "./components/upload/index",
+    "t-collapse": "tdesign-miniprogram/collapse/collapse",
+    "t-collapse-panel": "tdesign-miniprogram/collapse-panel/collapse-panel"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

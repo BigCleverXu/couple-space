@@ -9,7 +9,7 @@
 	</view>
 	<view wx:if="{{list.length>0}}">
 		<block wx:for="{{list}}">
-			<view class="line-card card">
+			<view class="line-card card" bind:tap="toAdd" data-id="{{index+1}}">
 				<view class="left">
 					<t-icon name="heart" size="48rpx" />
 					<text class="text">{{item.title}}</text>

@@ -22,8 +22,17 @@ Page({
       date: "17"
     }, ]
   },
-  toAdd() {
-    to("/pages/anniversary/anniversary-form/index")
+  toAdd(e) {
+    const {
+      id
+    } = e.target.dataset
+    let query = {}
+    if (id) {
+      query = {
+        id
+      }
+    }
+    to("/pages/anniversary/anniversary-form/index", query)
   },
   /**
    * 生命周期函数--监听页面加载

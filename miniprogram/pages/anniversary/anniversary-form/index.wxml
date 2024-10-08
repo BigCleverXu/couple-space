@@ -1,7 +1,7 @@
-<layout back="{{true}}" title="纪念日">
-	<t-input label="标题" align="right" value="{{formData.title}}" placeholder="请输入" data-name="title" bind:change="changeValue" />
+<layout back="{{true}}" title="{{title}}">
+	<t-input label="标题" align="right" value="{{formData.title}}" placeholder="请输入" data-name="title" bind:change="change" />
 	<!-- <x-input defaultValue="{{formData.title}}" data-name="title" bind:change="changeValue" /> -->
-	<x-date-time title="纪念日" date="{{formData.date}}" dateText="{{formData.dateText}}" bind:change="change" data-name="date" />
+	<x-date-time title="日期" date="{{formData.date}}" dateText="{{formData.dateText}}" bind:change="change" data-name="date" />
 	<x-upload max="{{1}}" bind:change="changeUpload" data-name="images" bind:change="change" />
 	<view>
 		<t-button theme="primary" bind:tap="submit">提交</t-button>

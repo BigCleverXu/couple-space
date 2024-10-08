@@ -2,7 +2,8 @@
   "pages": [
     "pages/home/index",
     "pages/anniversary/index",
-    "pages/anniversary/anniversary-form/index"
+    "pages/anniversary/anniversary-form/index",
+    "pages/diary/index"
   ],
   "window": {
     "navigationStyle": "custom"

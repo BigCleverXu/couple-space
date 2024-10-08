@@ -12,12 +12,21 @@ Page({
     url: "https://ts1.cn.mm.bing.net/th/id/R-C.4f1a35d455269c72bf54ac019dd95b10?rik=Pe6L8lmQk5hlOg&riu=http%3a%2f%2fdesk.fd.zol-img.com.cn%2ft_s960x600c5%2fg5%2fM00%2f0A%2f07%2fChMkJ1Zf6CyIWRXaAARjr0ZnlEEAAFpMgLQ5xwABGPH543.jpg&ehk=7LJMKFFlAN6Ost%2b4D62vwIxl9A1zzQWjvIBTnmq06W0%3d&risl=&pid=ImgRaw&r=0",
     avatar1: 'https://tdesign.gtimg.com/mobile/demos/avatar1.png',
     avatar2: 'https://tdesign.gtimg.com/mobile/demos/avatar2.png',
+    tabs: [{
+      label: "纪念日",
+      img: "/images/icons/calendar.png",
+      url: "/pages/anniversary/index"
+    }, {
+      label: "今天想说",
+      img: "/images/icons/bookmark.png",
+      url: "/pages/diary/index"
+    }]
   },
   onPreview(e) {
     previewByUrl(e)
   },
-  toInfo() {
-    to("/pages/anniversary/index")
+  toInfo(e) {
+    to(e.target.dataset.url)
   },
   /**
    * 生命周期函数--监听页面加载

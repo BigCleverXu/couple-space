@@ -1,0 +1,3 @@
+<layout back="{{true}}" title="姨妈助手">
+	<t-calendar using-custom-navbar="{{true}}" title="日期" use-popup="{{false}}"  />
+</layout>

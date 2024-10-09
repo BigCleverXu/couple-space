@@ -4,7 +4,8 @@
     "pages/anniversary/index",
     "pages/anniversary/anniversary-form/index",
     "pages/diary/index",
-    "pages/diary/diary-form/index"
+    "pages/diary/diary-form/index",
+    "pages/assistant/index"
   ],
   "window": {
     "navigationStyle": "custom"
@@ -29,7 +30,8 @@
     "t-collapse": "tdesign-miniprogram/collapse/collapse",
     "t-collapse-panel": "tdesign-miniprogram/collapse-panel/collapse-panel",
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
-    "t-dialog": "tdesign-miniprogram/dialog/dialog"
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-calendar": "tdesign-miniprogram/calendar/calendar"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

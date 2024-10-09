@@ -20,6 +20,10 @@ Page({
       label: "今天想说",
       img: "/images/icons/bookmark.png",
       url: "/pages/diary/index"
+    }, {
+      label: "姨妈助手",
+      img: "/images/icons/candle.png",
+      url: "/pages/assistant/index"
     }]
   },
   onPreview(e) {

@@ -14,7 +14,10 @@
 }
 
 .card .body image {
+	display: block;
 	margin-top: 20rpx;
+	width: 200rpx;
+	height: 200rpx;
 }
 
 .ring {

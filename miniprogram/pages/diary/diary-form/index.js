@@ -5,11 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: "纪念日",
+    title: "我想说",
+    show: false,
+    confirmBtn: {
+      content: '确定',
+      variant: 'base'
+    },
     formData: {
       title: "",
-      date: new Date().getTime(),
-      dateText: "",
       images: []
     }
   },
@@ -21,7 +24,15 @@ Page({
       [key]: value
     })
   },
+  closeDialog() {
+    this.setData({
+      show: false
+    });
+  },
   submit(e) {
+    this.setData({
+      show: true
+    })
     // console.log(e);
   },
   delete() {
@@ -36,7 +47,7 @@ Page({
     } = options
     if (id) {
       this.setData({
-        title: "编辑纪念日"
+        title: "编辑我想说"
       })
     }
   },

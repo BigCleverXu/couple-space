@@ -1,0 +1,9 @@
+<layout back="{{true}}" title="{{title}}">
+	<t-textarea label="文本" align="right" value="{{formData.title}}" placeholder="请输入" data-name="title" bind:change="change" />
+	<x-upload max="{{1}}" bind:change="changeUpload" data-name="images" bind:change="change" />
+	<view class="btn">
+		<t-button theme="primary" bind:tap="submit">提交</t-button>
+		<!-- <t-button theme="danger" bind:tap="delete" ghost>删除</t-button> -->
+	</view>
+	<t-dialog visible="{{show}}" content="提交后无法删除或修改\n因为现在的话都是你想说的" confirm-btn="{{ confirmBtn }}" cancel-btn="取消" bind:confirm="closeDialog" bind:cancel="closeDialog" />
+</layout>

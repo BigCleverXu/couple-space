@@ -1,4 +1,8 @@
 // pages/diary/index.js
+import {
+  previewByUrl,
+  to
+} from '../../utils/index'
 Page({
 
   /**
@@ -7,7 +11,21 @@ Page({
   data: {
 
   },
-
+  toAdd(e) {
+    const {
+      id
+    } = e.target.dataset
+    let query = {}
+    if (id) {
+      query = {
+        id
+      }
+    }
+    to("/pages/diary/diary-form/index", query)
+  },
+  preview(e) {
+    previewByUrl(e)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

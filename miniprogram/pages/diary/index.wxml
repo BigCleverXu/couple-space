@@ -1,2 +1,15 @@
 <layout back="{{true}}" title="今天我想说">
+	<view class="card">
+		<view class="header">
+			<view class="ring"></view>
+			<text class="text">2024-01-09</text>
+		</view>
+		<view class="body">
+			<p class="text">
+				世界我们的，也是你们的
+			</p>
+			<image src="https://pic.rmb.bdstatic.com/bjh/news/af09b881b60f965321a2edf4e1951d076038.png" mode="aspectFill" data-url="https://pic.rmb.bdstatic.com/bjh/news/af09b881b60f965321a2edf4e1951d076038.png" bind:tap="preview" />
+		</view>
+	</view>
+	<t-fab icon="add" draggable y-bounds="{{[0, 132]}}" bind:click="toAdd"></t-fab>
 </layout>

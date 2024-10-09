@@ -1,1 +1,25 @@
 /* pages/diary/index.wxss */
+.card .header {
+	display: flex;
+	align-items: center;
+	gap: 20rpx;
+}
+
+.card .header .text {
+	font-size: larger;
+}
+
+.card .body {
+	margin-top: 20rpx;
+}
+
+.card .body image {
+	margin-top: 20rpx;
+}
+
+.ring {
+	width: 20rpx;
+	height: 20rpx;
+	border: 4rpx solid var(--td-error-color, #e34d59);
+	border-radius: 50%;
+}

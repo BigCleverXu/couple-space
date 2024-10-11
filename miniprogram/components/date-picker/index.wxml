@@ -1,0 +1,5 @@
+<t-cell title="选择时间" arrow hover note="{{text}}" bind:click="onSeasonPicker" />
+<t-picker visible="{{visible}}" value="{{value}}" title="选择时间" cancelBtn="取消" confirmBtn="确认" usingCustomNavbar bindchange="onPickerChange" bindpick="onColumnChange" bindcancel="onPickerCancel">
+	<t-picker-item wx:if="{{hasMonth}}" options="{{month}}"></t-picker-item>
+	<t-picker-item wx:if="{{hasDay}}" options="{{day}}"></t-picker-item>
+</t-picker>

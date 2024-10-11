@@ -13,8 +13,6 @@
   "usingComponents": {
     "t-image": "tdesign-miniprogram/image/image",
     "t-navbar": "tdesign-miniprogram/navbar/navbar",
-    "t-avatar": "tdesign-miniprogram/avatar/avatar",
-    "t-footer": "tdesign-miniprogram/footer/footer",
     "t-grid": "tdesign-miniprogram/grid/grid",
     "t-grid-item": "tdesign-miniprogram/grid-item/grid-item",
     "layout": "./components/layout/index",
@@ -27,8 +25,7 @@
     "t-cell": "tdesign-miniprogram/cell/cell",
     "x-date-time": "./components/date-time/index",
     "x-upload": "./components/upload/index",
-    "t-collapse": "tdesign-miniprogram/collapse/collapse",
-    "t-collapse-panel": "tdesign-miniprogram/collapse-panel/collapse-panel",
+    "x-date-picker": "./components/date-picker/index",
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-calendar": "tdesign-miniprogram/calendar/calendar"

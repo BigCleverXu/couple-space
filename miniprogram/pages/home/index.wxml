@@ -2,14 +2,14 @@
 	<view class="header">
 		<image src="{{url}}" mode="aspectFill" bind:tap="onPreview" data-url="{{url}}"></image>
 	</view>
-	<view class="time-container">
+	<x-card x-class="time-container">
 		<t-avatar image="{{avatar1}}" />
 		<view class="center-container">
 			<span class="top">在一起已经</span>
 			<span class="bottom">100 <text class="day">天</text></span>
 		</view>
 		<t-avatar image="{{avatar2}}" />
-	</view>
+	</x-card>
 	<t-grid column="{{3}}" theme="card" class="t-grid">
 		<t-grid-item text="{{item.label}}" wx:for="{{tabs}}" image="{{item.img}}" data-url="{{item.url}}" bindclick="toInfo" />
 		<!-- <t-grid-item text="纪念日" image="/images/icons/calendar.png" bindclick="toInfo" />

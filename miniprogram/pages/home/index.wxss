@@ -15,12 +15,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	width: 100%;
 	margin: 20rpx 0;
-	padding: 20rpx 0;
-	border-radius: var(--td-grid-card-radius, var(--td-radius-large, 18rpx));
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-	background-color: var(--td-grid-bg-color, var(--td-bg-color-container, var(--td-font-white-1, #ffffff)));
 }
 
 .time-container .center-container {

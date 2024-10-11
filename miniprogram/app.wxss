@@ -1,15 +1,6 @@
 @import "./styles/light.wxss";
 
 /* @import "./styles/dark.wxss"; */
-.card {
-	padding: 20rpx 40rpx;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-	background-color: var(--td-grid-bg-color, var(--td-bg-color-container, var(--td-font-white-1)));
-	border-radius: var(--td-grid-card-radius, var(--td-radius-large, 18rpx));
-	position: relative;
-	overflow: hidden;
-}
-
 .btn-group {
 	position: absolute;
 	bottom: 20rpx;

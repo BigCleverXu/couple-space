@@ -1,7 +1,8 @@
 /* pages/anniversary/index.wxss */
-.last-card{
+.last-card {
 	margin-bottom: 40rpx;
 }
+
 .last-card::after {
 	content: "最近纪念日";
 	color: #fff;
@@ -40,27 +41,31 @@
 	color: #95a5a6;
 }
 
-.line-card {
+.card {
+	margin-top: 20rpx;
+}
+
+.row {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	font-weight: 600;
-	padding: 40rpx;
-	margin-top: 20rpx;
+	padding: 20rpx 0rpx;
 }
 
-.line-card .left {
+.row .left {
 	display: flex;
 	align-items: center;
 }
 
-.line-card .left .text {
+.row .left .text {
 	margin-left: 20rpx;
 }
 
-.line-card .right .date {
+.row .right .date {
 	color: #95a5a6;
 }
-.t-empty{
+
+.t-empty {
 	margin-top: 350rpx;
 }

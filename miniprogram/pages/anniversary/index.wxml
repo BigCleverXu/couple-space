@@ -1,23 +1,25 @@
 <layout back="{{true}}" title="纪念日">
-	<view class="last-card card">
+	<x-card x-class="last-card">
 		<view class="title">第一次接吻已有</view>
 		<view class="day">12 <text class="unit">天</text> </view>
 		<view class="start-date">
 			<text>起始日: </text>
 			<text>2019年12月28日</text>
 		</view>
-	</view>
+	</x-card>
 	<view wx:if="{{list.length>0}}">
 		<block wx:for="{{list}}">
-			<view class="line-card card" bind:tap="toAdd" data-id="{{index+1}}">
-				<view class="left">
-					<t-icon name="heart" size="48rpx" />
-					<text class="text">{{item.title}}</text>
+			<x-card x-class="card" bind:tap="toAdd" data-id="{{index+1}}">
+				<view class="row">
+					<view class="left">
+						<t-icon name="heart" size="48rpx" />
+						<text class="text">{{item.title}}</text>
+					</view>
+					<view class="right">
+						<text class="date">{{item.date}}天</text>
+					</view>
 				</view>
-				<view class="right">
-					<text class="date">{{item.date}}天</text>
-				</view>
-			</view>
+			</x-card>
 		</block>
 	</view>
 	<t-empty wx:else icon="info-circle-filled" description="暂无纪念日，快去和TA创建吧~" />

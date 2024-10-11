@@ -1,0 +1,18 @@
+<layout title="我的">
+	<x-card>
+		<view class="header">
+			<t-avatar image="{{avatar1}}" />
+			<text class="nickname">二狗子</text>
+		</view>
+	</x-card>
+	<!-- <x-card x-class="container">
+		<view class="item">
+			<t-avatar image="{{avatar1}}" />
+			<text class="nickname">二狗子</text>
+		</view>
+		<view class="item">
+			<t-avatar image="{{avatar2}}" />
+			<text class="nickname">王二麻子</text>
+		</view>
+	</x-card> -->
+</layout>

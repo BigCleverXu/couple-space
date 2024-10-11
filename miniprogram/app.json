@@ -5,7 +5,8 @@
     "pages/anniversary/anniversary-form/index",
     "pages/diary/index",
     "pages/diary/diary-form/index",
-    "pages/assistant/index"
+    "pages/assistant/index",
+    "pages/user/index"
   ],
   "window": {
     "navigationStyle": "custom"
@@ -26,10 +27,24 @@
     "x-date-time": "./components/date-time/index",
     "x-upload": "./components/upload/index",
     "x-date-picker": "./components/date-picker/index",
-    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+    "x-card": "./components/card/index",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
-    "t-calendar": "tdesign-miniprogram/calendar/calendar"
+    "t-avatar": "tdesign-miniprogram/avatar/avatar"
   },
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "selectedColor": "#0052d9",
+    "list": [{
+      "pagePath": "pages/home/index",
+      "text": "首页",
+      "iconPath": "images/icons/home.png",
+      "selectedIconPath": "images/icons/home@select.png"
+    }, {
+      "pagePath": "pages/user/index",
+      "text": "我的",
+      "iconPath": "images/icons/user.png",
+      "selectedIconPath": "images/icons/user@select.png"
+    }]
+  }
 }

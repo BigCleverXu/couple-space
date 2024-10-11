@@ -23,9 +23,10 @@ Page({
     }, ]
   },
   toAdd(e) {
+    console.log(e);
     const {
       id
-    } = e.target.dataset
+    } = e.currentTarget.dataset
     let query = {}
     if (id) {
       query = {

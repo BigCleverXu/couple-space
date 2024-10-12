@@ -6,6 +6,8 @@ Page({
    */
   data: {
     title: "纪念日",
+    show: false,
+    confirmBtn: { content: '确定', variant: 'base' },
     formData: {
       title: "",
       date: new Date().getTime(),
@@ -25,7 +27,14 @@ Page({
     // console.log(e);
   },
   delete() {
-
+    this.setData({
+      show: true
+    })
+  },
+  closeDialog() {
+    this.setData({
+      show: false
+    })
   },
   /**
    * 生命周期函数--监听页面加载

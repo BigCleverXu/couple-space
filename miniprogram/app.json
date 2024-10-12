@@ -6,7 +6,9 @@
     "pages/diary/index",
     "pages/diary/diary-form/index",
     "pages/assistant/index",
-    "pages/user/index"
+    "pages/user/index",
+    "pages/setting/system/index",
+    "pages/setting/user/index"
   ],
   "window": {
     "navigationStyle": "custom"
@@ -29,22 +31,26 @@
     "x-date-picker": "./components/date-picker/index",
     "x-card": "./components/card/index",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
-    "t-avatar": "tdesign-miniprogram/avatar/avatar"
+    "t-avatar": "tdesign-miniprogram/avatar/avatar",
+    "t-tag": "tdesign-miniprogram/tag/tag"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "tabBar": {
     "selectedColor": "#0052d9",
-    "list": [{
-      "pagePath": "pages/home/index",
-      "text": "首页",
-      "iconPath": "images/icons/home.png",
-      "selectedIconPath": "images/icons/home@select.png"
-    }, {
-      "pagePath": "pages/user/index",
-      "text": "我的",
-      "iconPath": "images/icons/user.png",
-      "selectedIconPath": "images/icons/user@select.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/home@select.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "images/icons/user.png",
+        "selectedIconPath": "images/icons/user@select.png"
+      }
+    ]
   }
 }

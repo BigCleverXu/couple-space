@@ -2,9 +2,19 @@
 	<x-card>
 		<view class="header">
 			<t-avatar image="{{avatar1}}" />
-			<text class="nickname">二狗子</text>
+			<view class="right">
+				<view class="nickname">
+					<text>二狗子</text>
+					<t-tag theme="primary" variant="light">左</t-tag>
+				</view>
+				<text class="tip">遇见你是我最好的选择</text>
+			</view>
 		</view>
 	</x-card>
+	<view class="body">
+		<t-cell leftIcon="user-setting" title="个人设置" hover arrow url="/pages/setting/user/index" />
+		<t-cell leftIcon="setting-1" title="系统设置" hover arrow url="/pages/setting/system/index" />
+	</view>
 	<!-- <x-card x-class="container">
 		<view class="item">
 			<t-avatar image="{{avatar1}}" />

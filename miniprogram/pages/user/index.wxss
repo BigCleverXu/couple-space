@@ -21,9 +21,32 @@
 	display: flex;
 }
 
-.header .nickname {
+.header .t-avatar {
+	width: 140rpx;
+	height: 140rpx;
+}
+
+.header .right {
+	display: flex;
+	flex-direction: column;
 	margin-top: 10rpx;
 	margin-left: 20rpx;
-	font-size: larger;
+	gap: 20rpx;
+}
+
+.header .nickname {
+	font-size: x-large;
 	font-weight: 500;
+	display: flex;
+	align-items: center;
+	gap: 20rpx;
+}
+
+.header .tip {
+	color: #95a5a6;
+	font-size: small;
+}
+
+.body {
+	margin-top: 20rpx;
 }

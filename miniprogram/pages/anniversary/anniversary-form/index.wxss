@@ -2,6 +2,8 @@
 .btn-container {
 	margin: 80rpx 0 20rpx;
 	width: 100%;
+	display: flex;
+	gap: 20rpx;
 }
 .t-button{
 	width: 100%;

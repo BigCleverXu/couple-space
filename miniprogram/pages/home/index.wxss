@@ -1,16 +1,4 @@
 /* pages/home/index.wxss */
-.header {
-	width: 100%;
-	height: 270rpx;
-	border-radius: var(--td-grid-card-radius, var(--td-radius-large, 18rpx));
-	overflow: hidden;
-}
-
-.header image {
-	width: 100%;
-	height: 100%;
-}
-
 .time-container {
 	display: flex;
 	align-items: center;

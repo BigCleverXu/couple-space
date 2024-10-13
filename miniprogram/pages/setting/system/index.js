@@ -5,9 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    formData: {
+      images: []
+    }
   },
-
+  change(e) {
+    const value = e.detail.value ?? e.detail
+    const key = `formData.${e.currentTarget.dataset.name}`
+    console.log(e);
+    this.setData({
+      [key]: value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

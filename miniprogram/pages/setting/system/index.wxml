@@ -1,2 +1,3 @@
 <layout title="系统设置" back>
+	<x-upload title="首页轮播图" max="{{3}}" data-name="images" bind:change="change" />
 </layout>

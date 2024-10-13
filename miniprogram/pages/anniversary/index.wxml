@@ -12,7 +12,8 @@
 			<x-card x-class="card" bind:tap="toAdd" data-id="{{index+1}}">
 				<view class="row">
 					<view class="left">
-						<t-icon name="heart" size="48rpx" />
+						<t-icon wx:if="{{index ==0}}" name="heart" size="48rpx" />
+						<t-icon wx:else name="sandwich" size="48rpx" />
 						<text class="text">{{item.title}}</text>
 					</view>
 					<view class="right">

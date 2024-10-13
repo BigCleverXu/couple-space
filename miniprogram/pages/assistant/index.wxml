@@ -1,4 +1,4 @@
 <layout back="{{true}}" title="姨妈助手">
 	<x-date-picker hasMonth="{{false}}" bind:change="change"></x-date-picker>
-	<t-calendar using-custom-navbar default-value="{{date}}" min-date="{{minDate}}" title="日期" use-popup="{{false}}" />
+	<t-calendar using-custom-navbar default-value="{{date}}" min-date="{{minDate}}" format="{{format}}" title="日期" use-popup="{{false}}" />
 </layout>

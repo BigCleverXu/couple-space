@@ -1,1 +1,4 @@
 /* pages/assistant/index.wxss */
+.is-err-day:not(.t-calendar__dates-item--selected) {
+  color: #e34d59 !important;
+}

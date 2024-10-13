@@ -46,7 +46,7 @@ Component({
       this.setData({
         visible: false,
         value: value,
-        text: value.join(' '),
+        text: value.join('-'),
       });
     },
 

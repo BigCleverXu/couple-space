@@ -1,24 +1,50 @@
 // pages/assistant/index.js
+const dayjs = require('dayjs')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    formData: {},
-    date:new Date().getTime(),
-    minDate:new Date("2024-01-01").getTime()
+    formData: {
+      date: "9"
+    },
+    date: new Date().getTime(),
+    minDate: new Date("2024-10-01").getTime()
   },
   change(e) {
-    console.log(e.detail);
+    this.setData({
+      ['formData.date']: e.detail.value[0]
+    })
+    this.initDate()
+    // console.log(e.detail);
+  },
+  initDate() {
+    this.setData({
+      format: (day) => {
+        const {
+          date
+        } = day;
+        for (let index = 0; index < 7; index++) {
+          let start = dayjs(`${dayjs(date).format('YYYY-MM')}-${+this.data.formData.date}`).add(index, 'day').get('D').valueOf()
+          if (dayjs(date).get('D').valueOf() == start) {
+            day.className = 'is-err-day';
+            day.prefix = '姨妈';
+            day.suffix = `第${index+1}天`;
+          }
+        }
+
+        return day;
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     setTimeout(() => {
-
-    }, 500)
+      this.initDate()
+    }, 100)
   },
 
   /**

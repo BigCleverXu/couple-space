@@ -32,14 +32,14 @@
     "x-card": "./components/card/index",
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-avatar": "tdesign-miniprogram/avatar/avatar",
-    "t-tag": "tdesign-miniprogram/tag/tag"
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "t-switch": "tdesign-miniprogram/switch/switch"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "tabBar": {
     "selectedColor": "#0052d9",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home/index",
         "text": "首页",
         "iconPath": "images/icons/home.png",

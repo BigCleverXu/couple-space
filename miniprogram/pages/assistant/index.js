@@ -6,7 +6,8 @@ Page({
    */
   data: {
     formData: {},
-
+    date:new Date().getTime(),
+    minDate:new Date("2024-01-01").getTime()
   },
   change(e) {
     console.log(e.detail);

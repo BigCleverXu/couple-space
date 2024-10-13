@@ -1,2 +1,13 @@
 <layout title="个人设置" back>
+	<t-cell title="头像" hover>
+		<view class="avatar" slot="right-icon">
+			<t-button variant="text" shape="circle" size="large" open-type="chooseAvatar" bindchooseavatar="bindchooseavatar">
+				<t-avatar image="{{avatar}}"></t-avatar>
+			</t-button>
+		</view>
+	</t-cell>
+	<t-input label="昵称" align="right" placeholder="请输入昵称"></t-input>
+	<t-cell title="方向" hover>
+		<t-switch defaultValue="{{true}}" label="{{['左', '右']}}" slot="note" />
+	</t-cell>
 </layout>

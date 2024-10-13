@@ -5,9 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    avatar: ""
   },
-
+  bindchooseavatar(e) {
+    this.setData({
+      avatar: e.detail.avatarUrl
+    })
+    // console.log(e);
+  },
   /**
    * 生命周期函数--监听页面加载
    */

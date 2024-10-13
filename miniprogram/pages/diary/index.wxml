@@ -11,5 +11,5 @@
 			<image src="https://pic.rmb.bdstatic.com/bjh/news/af09b881b60f965321a2edf4e1951d076038.png" mode="aspectFill" data-url="https://pic.rmb.bdstatic.com/bjh/news/af09b881b60f965321a2edf4e1951d076038.png" bind:tap="preview" />
 		</view>
 	</x-card>
-	<t-fab icon="add" draggable y-bounds="{{[0, 132]}}" bind:click="toAdd"></t-fab>
+	<t-fab using-custom-navbar icon="add" draggable y-bounds="{{[0, 132]}}" bind:click="toAdd"></t-fab>
 </layout>

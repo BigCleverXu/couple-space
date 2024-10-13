@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "t-switch": "tdesign-miniprogram/switch/switch"
+  }
 }

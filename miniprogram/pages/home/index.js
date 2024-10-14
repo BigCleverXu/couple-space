@@ -33,7 +33,7 @@ Page({
       img: "/images/icons/bookmark.png",
       url: "/pages/diary/index"
     }, {
-      label: "姨妈助手",
+      label: "月经助手",
       img: "/images/icons/candle.png",
       url: "/pages/assistant/index"
     }]

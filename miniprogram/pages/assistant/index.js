@@ -20,20 +20,40 @@ Page({
     // console.log(e.detail);
   },
   initDate() {
+    /**
+     * 判断当月是否有31号如果有就从31号开始往后数7天
+     * 如果没有就从下月1号开始往后数7天
+     */
+    let arr = []
+    const today = dayjs()
+    for (let index = 0; index < 7; index++) {
+      const currentMonth = today.add(index, 'month')
+      const year = dayjs(currentMonth).format('YYYY')
+      const month = dayjs(currentMonth).format('MM')
+      const date = this.data.formData.date
+      let fullYear = dayjs(`${year}-${month}-${date}`)
+      if (month == '02' && ['29', '30', '31'].findIndex(f => f == date) >= -1) {
+        fullYear = dayjs(`${year}-${month}`).endOf('month')
+      }
+      for (let j = 0; j < 7; j++) {
+        arr.push({
+          date: fullYear.add(j, 'day').format('YYYY-MM-DD'),
+          index: j + 1
+        })
+      }
+    }
     this.setData({
       format: (day) => {
         const {
           date
         } = day;
-        for (let index = 0; index < 7; index++) {
-          let start = dayjs(`${dayjs(date).format('YYYY-MM')}-${+this.data.formData.date}`).add(index, 'day').get('D').valueOf()
-          if (dayjs(date).get('D').valueOf() == start) {
-            day.className = 'is-err-day';
-            day.prefix = '姨妈';
-            day.suffix = `第${index+1}天`;
-          }
+        const fullDate = dayjs(date).format('YYYY-MM-DD')
+        const fd = arr.find(f => f.date == fullDate)
+        if (fd) {
+          day.prefix = "月经";
+          day.suffix = `第${fd.index}天`;
+          day.className = 'is-err-day';
         }
-
         return day;
       }
     })

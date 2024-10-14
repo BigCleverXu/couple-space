@@ -8,7 +8,8 @@
     "pages/assistant/index",
     "pages/user/index",
     "pages/setting/system/index",
-    "pages/setting/user/index"
+    "pages/setting/user/index",
+    "pages/ticket/index"
   ],
   "window": {
     "navigationStyle": "custom"
@@ -39,17 +40,18 @@
   "lazyCodeLoading": "requiredComponents",
   "tabBar": {
     "selectedColor": "#0052d9",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/home/index",
         "text": "首页",
-        "iconPath": "images/icons/home.png",
-        "selectedIconPath": "images/icons/home@select.png"
+        "iconPath": "images/bar/home.png",
+        "selectedIconPath": "images/bar/home@select.png"
       },
       {
         "pagePath": "pages/user/index",
         "text": "我的",
-        "iconPath": "images/icons/user.png",
-        "selectedIconPath": "images/icons/user@select.png"
+        "iconPath": "images/bar/user.png",
+        "selectedIconPath": "images/bar/user@select.png"
       }
     ]
   }

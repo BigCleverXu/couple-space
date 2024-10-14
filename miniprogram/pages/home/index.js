@@ -36,6 +36,10 @@ Page({
       label: "月经助手",
       img: "/images/icons/candle.png",
       url: "/pages/assistant/index"
+    }, {
+      label: "卡券",
+      img: "/images/icons/ticket.png",
+      url: "/pages/ticket/index"
     }]
   },
   onPreview(e) {

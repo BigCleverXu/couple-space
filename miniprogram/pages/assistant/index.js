@@ -25,15 +25,23 @@ Page({
      * 如果没有就从下月1号开始往后数7天
      */
     let arr = []
+    //获取今天
     const today = dayjs()
     for (let index = 0; index < 7; index++) {
+      //开始计算从当前月开始的日期
       const currentMonth = today.add(index, 'month')
+      //年
       const year = dayjs(currentMonth).format('YYYY')
+      //月
       const month = dayjs(currentMonth).format('MM')
-      const date = this.data.formData.date
+      //选中的日
+      const date = `${this.data.formData.date}`
+      //完整的日期
       let fullYear = dayjs(`${year}-${month}-${date}`)
-      if (month == '02' && ['29', '30', '31'].findIndex(f => f == date) >= -1) {
-        fullYear = dayjs(`${year}-${month}`).endOf('month')
+      //判断二月的日期
+      const hasDate = ['29', '30', '31'].includes(date)
+      if (month == '02' && hasDate) {
+        fullYear = dayjs(`${year}-${month}`).startOf('month').add(1,'month')
       }
       for (let j = 0; j < 7; j++) {
         arr.push({

@@ -7,11 +7,15 @@ Page({
   data: {
     title: "纪念日",
     show: false,
-    confirmBtn: { content: '确定', variant: 'base' },
+    confirmBtn: {
+      content: '确定',
+      variant: 'base'
+    },
     formData: {
       title: "",
       date: new Date().getTime(),
       dateText: "",
+      isBirth: false,
       images: []
     }
   },

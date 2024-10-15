@@ -1,0 +1,25 @@
+<view class="wrapper" wx:for="{{list}}" key='item.id'>
+	<!-- 左侧box -->
+	<view class="content">
+		<view class="coupon-count">{{item.size}}张</view>
+		<view class="oilline linwidth160 lineBt"></view>
+		<text class="text">券</text>
+		<view class="oilline  linwidth160 lineBt"></view>
+	</view>
+
+	<view class="split-line"></view>
+	<!-- 右侧box -->
+	<view class="tip">
+		<view class="oilline linwidth227 lineBt"></view>
+		<view class="vname-box">
+			<view class="couponmaes">{{item.itemName}}</view>
+			<view class="overdate">2024-08-01~2024-09-01</view>
+		</view>
+		<view class="oilline linwidth227 lineBt"></view>
+		<view class="btnbx   {{item.active ? 'animation':''  }}">
+			<view class="btnw {{item.active ? 'btn-active':'btn-gray'  }}">
+				<view class="btnn" data-id="{{item.id}}" bindtap="submitCilck">马上使用</view>
+			</view>
+		</view>
+	</view>
+</view>

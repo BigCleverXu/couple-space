@@ -4,9 +4,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-    tabPanelstyle: 'display:flex;justify-content:center;align-items:center;',
-  },
+  data: {},
   onTabsChange(event) {
     console.log(`Change tab, tab-panel value is ${event.detail.value}.`);
   },

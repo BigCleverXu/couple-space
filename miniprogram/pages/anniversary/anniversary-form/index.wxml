@@ -2,7 +2,7 @@
 	<t-input label="标题" align="right" value="{{formData.title}}" placeholder="请输入" data-name="title" bind:change="change" />
 	<!-- <x-input defaultValue="{{formData.title}}" data-name="title" bind:change="changeValue" /> -->
 	<t-cell title="生日" hover>
-		<t-switch defaultValue="{{true}}" label="{{['是', '否']}}" slot="note" />
+		<t-switch defaultValue="{{false}}" label="{{['是', '否']}}" slot="note" bind:change="change" data-name="isBirth" />
 	</t-cell>
 	<x-date-time title="日期" date="{{formData.date}}" dateText="{{formData.dateText}}" bind:change="change" data-name="date" />
 	<x-upload max="{{1}}" data-name="images" bind:change="change" />

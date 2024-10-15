@@ -1,5 +1,22 @@
 /* pages/ticket/index.wxss */
 .panel {
 	height: calc(100vh - 450rpx) !important;
-	color: var(--td-text-color-primary);
+	background: #F3F3F3;
+}
+
+.panel-container {
+	padding: 10rpx;
+	height: 100%;
+}
+
+.x-card {
+	margin-bottom: 30rpx;
+}
+
+.scroll-container {
+	height: 100%;
+}
+
+.scroll_inner_container {
+	padding-bottom: 40rpx;
 }

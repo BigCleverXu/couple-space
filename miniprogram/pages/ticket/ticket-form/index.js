@@ -1,4 +1,4 @@
-// pages/anniversary/anniversary-form/index.js
+// pages/ticket/ticket-form/index.js
 import {
   showMessage,
   showToast,
@@ -10,29 +10,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: "纪念日",
-    show: false,
-    confirmBtn: {
-      content: '确定',
-      variant: 'base'
-    },
+    status: {},
     formData: {
       title: "",
-      date: new Date().getTime(),
-      dateText: "",
-      isBirth: false,
-      images: []
+      startDate: new Date().getTime(),
+      startDateText: "",
+      endDate: new Date().getTime(),
+      endDateText: "",
+      size: 1,
+      remark: ""
     }
   },
-  change(e) {
-    const value = e.detail.value ?? e.detail
-    const key = `formData.${e.currentTarget.dataset.name}`
-    console.log(e);
-    this.setData({
-      [key]: value
-    })
-  },
-  submit(e) {
+  submit() {
     const that = this
     showToast({
       that,
@@ -47,30 +36,21 @@ Page({
         content: "成功",
       })
     }, 1000)
-    // console.log(e);
+    // wx.navigateBack()
   },
-  delete() {
+  change(e) {
+    const value = e.detail.value ?? e.detail
+    const key = `formData.${e.currentTarget.dataset.name}`
+    console.log(e);
     this.setData({
-      show: true
-    })
-  },
-  closeDialog() {
-    this.setData({
-      show: false
+      [key]: value
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const {
-      id
-    } = options
-    if (id) {
-      this.setData({
-        title: "编辑纪念日"
-      })
-    }
+
   },
 
   /**

@@ -12,3 +12,5 @@
 	</view>
 	<t-dialog visible="{{show}}" content="是否确认删除" confirm-btn="{{ confirmBtn }}" cancel-btn="取消" bind:confirm="closeDialog" bind:cancel="closeDialog" />
 </layout>
+<t-message id="t-message" />
+<t-toast id="t-toast" />

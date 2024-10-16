@@ -9,7 +9,8 @@
     "pages/user/index",
     "pages/setting/system/index",
     "pages/setting/user/index",
-    "pages/ticket/index"
+    "pages/ticket/index",
+    "pages/ticket/ticket-form/index"
   ],
   "window": {
     "navigationStyle": "custom"
@@ -34,7 +35,10 @@
     "t-dialog": "tdesign-miniprogram/dialog/dialog",
     "t-avatar": "tdesign-miniprogram/avatar/avatar",
     "t-tag": "tdesign-miniprogram/tag/tag",
-    "t-switch": "tdesign-miniprogram/switch/switch"
+    "t-switch": "tdesign-miniprogram/switch/switch",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-message": "tdesign-miniprogram/message/message"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",

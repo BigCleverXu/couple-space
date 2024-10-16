@@ -1,6 +1,8 @@
 // components/layout/index.js
 Component({
-
+  options: {
+    multipleSlots: true
+  },
   /**
    * 组件的属性列表
    */
@@ -12,6 +14,14 @@ Component({
     back: {
       type: Boolean,
       value: false
+    },
+    status: {
+      type: Object,
+      value: {
+        theme: "",
+        title: "",
+        description: ""
+      }
     }
   },
 

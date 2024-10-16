@@ -3,6 +3,10 @@
 	padding: 10rpx 10rpx 40rpx 10rpx;
 }
 
+.result {
+	margin-top: 350rpx;
+}
+
 .t-footer {
 	margin-top: 50rpx;
 }

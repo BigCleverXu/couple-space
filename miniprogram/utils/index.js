@@ -1,3 +1,7 @@
+import Message from 'tdesign-miniprogram/message/index';
+import Toast, {
+	hideToast
+} from 'tdesign-miniprogram/toast/index';
 export function previewByUrl(e) {
 	const {
 		url
@@ -18,4 +22,35 @@ export function to(path, params = {}) {
 	wx.navigateTo({
 		url: path + query
 	})
+}
+export function showMessage({
+	that,
+	type = "success",
+	duration = 2000,
+	content
+}) {
+	Message[type]({
+		context: that,
+		offset: [90, 32],
+		duration,
+		content,
+	});
+}
+export function showToast({
+	that,
+	message = '成功',
+	theme = 'success',
+	duration
+}) {
+	Toast({
+		context: that,
+		selector: '#t-toast',
+		message,
+		theme,
+		direction: 'column',
+		duration,
+	});
+}
+export function hideLoading() {
+	hideToast();
 }

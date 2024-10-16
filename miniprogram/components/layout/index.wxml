@@ -1,6 +1,9 @@
 <view class="container">
 	<t-navbar title="{{title}}" left-arrow="{{back}}" />
-	<slot></slot>
+	<slot wx:if="{{!status.theme}}"> </slot>
+	<view wx:else class="result">
+		<t-result theme="{{status.theme}}" title="{{status.title}}" description="{{status.description}}" />
+	</view>
 	<view class="t-footer">
 		<t-footer text="Copyright created by JackXu"></t-footer>
 	</view>

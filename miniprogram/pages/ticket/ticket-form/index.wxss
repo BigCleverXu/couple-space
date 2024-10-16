@@ -1,0 +1,9 @@
+/* pages/ticket/ticket-form/index.wxss */
+.btn {
+	margin: 80rpx 0 20rpx;
+	width: 100%;
+}
+
+.t-button {
+	width: 100%;
+}

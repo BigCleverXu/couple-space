@@ -20,3 +20,7 @@
 .scroll_inner_container {
 	padding-bottom: 40rpx;
 }
+
+.t-empty {
+	margin-top: 350rpx;
+}

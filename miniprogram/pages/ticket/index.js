@@ -1,10 +1,16 @@
 // pages/ticket/index.js
+import {
+  to
+} from '../../utils/index'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {},
+  toAdd() {
+    to('/pages/ticket/ticket-form/index')
+  },
   onTabsChange(event) {
     console.log(`Change tab, tab-panel value is ${event.detail.value}.`);
   },

@@ -1,3 +1,4 @@
 <layout title="系统设置" back>
-	<x-upload title="首页轮播图" max="{{3}}" data-name="images" bind:change="change" />
+	<x-upload title="首页轮播图" max="{{3}}" bind:change="change" data-name="images" />
+	<x-date-time title="爱情开始的日期" date="{{formData.date}}" dateText="{{formData.dateText}}" bind:change="change" data-name="date" />
 </layout>

@@ -6,7 +6,9 @@ Page({
    */
   data: {
     formData: {
-      images: []
+      images: [],
+      date: new Date().getTime(),
+      dateText: "",
     }
   },
   change(e) {

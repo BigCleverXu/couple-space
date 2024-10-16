@@ -1,4 +1,9 @@
 // pages/anniversary/anniversary-form/index.js
+import {
+  showMessage,
+  showToast,
+  hideLoading
+} from '../../../utils/index'
 Page({
 
   /**
@@ -33,10 +38,28 @@ Page({
     this.setData({
       show: true
     })
+
     // console.log(e);
   },
   delete() {
 
+  },
+  confirmDialog() {
+    const that = this
+    that.closeDialog()
+    showToast({
+      that,
+      theme: "loading",
+      message: "正在提交",
+      duration: 0
+    })
+    setTimeout(() => {
+      hideLoading()
+      showMessage({
+        that,
+        content: "成功",
+      })
+    }, 1000)
   },
   /**
    * 生命周期函数--监听页面加载

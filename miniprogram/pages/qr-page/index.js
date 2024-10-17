@@ -22,10 +22,12 @@ Page({
       duration: 0
     })
     //option为上个页面传递过来的参数
-    const jiaoyanCode = 'sorry,jiaoyanCode is loss';
-    console.log(jiaoyanCode);
-    const size = this.setCanvasSize(); //动态设置画布大小	
-    this.createQrCode(jiaoyanCode, "canvas", size.w, size.h);
+    setTimeout(() => {
+      const jiaoyanCode = 'sorry,jiaoyanCode is loss';
+      console.log(jiaoyanCode);
+      const size = this.setCanvasSize(); //动态设置画布大小	
+      this.createQrCode(jiaoyanCode, "canvas", size.w, size.h);
+    }, 500)
   },
 
   //适配不同屏幕大小的canvas

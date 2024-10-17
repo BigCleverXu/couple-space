@@ -1,4 +1,4 @@
-<layout title="卡券" back>
+<layout title="券码" back>
 	<view class="container">
 		<canvas canvas-id="canvas" />
 	</view>

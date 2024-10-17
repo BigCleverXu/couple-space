@@ -12,10 +12,6 @@ Page({
   data: {
     title: "纪念日",
     show: false,
-    confirmBtn: {
-      content: '确定',
-      variant: 'base'
-    },
     formData: {
       title: "",
       date: new Date().getTime(),
@@ -58,6 +54,23 @@ Page({
     this.setData({
       show: false
     })
+  },
+  confirmDialog(){
+    showToast({
+      that: this,
+      theme: "loading",
+      duration: 0,
+      message: "正在删除"
+    })
+    setTimeout(() => {
+      this.closeDialog()
+      hideLoading()
+      showMessage({
+        that: this,
+        content: "删除成功",
+        type: "success"
+      })
+    }, 500)
   },
   /**
    * 生命周期函数--监听页面加载

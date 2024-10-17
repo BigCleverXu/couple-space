@@ -1,4 +1,7 @@
 // components/ticket/index.js
+import {
+  to
+} from '../../utils/index'
 Component({
 
   /**
@@ -31,7 +34,10 @@ Component({
       const {
         id
       } = e.target.dataset
-      console.log(id);
+      to('/pages/qr-page/index', {
+        id
+      })
+      // console.log(id);
     }
   }
 })

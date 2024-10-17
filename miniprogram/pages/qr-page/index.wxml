@@ -1,0 +1,6 @@
+<layout title="卡券" back>
+	<view class="container">
+		<canvas canvas-id="canvas" />
+	</view>
+</layout>
+<t-toast id="t-toast" />

@@ -10,7 +10,8 @@
     "pages/setting/system/index",
     "pages/setting/user/index",
     "pages/ticket/index",
-    "pages/ticket/ticket-form/index"
+    "pages/ticket/ticket-form/index",
+    "pages/qr-page/index"
   ],
   "window": {
     "navigationStyle": "custom"

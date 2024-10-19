@@ -2,12 +2,20 @@
 	<t-cell title="头像" hover>
 		<view class="avatar" slot="right-icon">
 			<t-button variant="text" shape="circle" size="large" open-type="chooseAvatar" bindchooseavatar="bindchooseavatar">
-				<t-avatar image="{{avatar}}"></t-avatar>
+				<t-avatar image="{{formData.avatar}}"></t-avatar>
 			</t-button>
 		</view>
 	</t-cell>
-	<t-input label="昵称" align="right" placeholder="请输入昵称"></t-input>
+	<t-input label="昵称" align="right" placeholder="请输入昵称" data-name="nickname" bind:change="change" value="{{formData.nickname}}"></t-input>
 	<t-cell title="方向" hover>
-		<t-switch defaultValue="{{true}}" label="{{['左', '右']}}" slot="note" />
+		<t-switch custom-value="{{['LEFT','RIGHT']}}" defaultValue="{{formData.direction}}" label="{{['左', '右']}}" slot="note" data-name="direction" bind:change="change" />
 	</t-cell>
+	<t-cell title="性别" hover>
+		<t-switch custom-value="{{['MALE','FEMALE']}}" defaultValue="{{formData.sex}}" label="{{['男', '男']}}" slot="note" data-name="sex" bind:change="change" />
+	</t-cell>
+	<view class="btn-container">
+		<t-button theme="primary" bind:tap="submit">提交</t-button>
+	</view>
 </layout>
+<t-message id="t-message" />
+<t-toast id="t-toast" />

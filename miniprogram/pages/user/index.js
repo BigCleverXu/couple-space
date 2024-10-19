@@ -1,4 +1,5 @@
 // pages/user/index.js
+const app = getApp()
 Page({
 
   /**
@@ -7,13 +8,18 @@ Page({
   data: {
     avatar1: 'https://tdesign.gtimg.com/mobile/demos/avatar1.png',
     avatar2: 'https://tdesign.gtimg.com/mobile/demos/avatar2.png',
+    isSetting: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    if (app.globalData.userInfo) {
+      this.setData({
+        isSetting: true
+      })
+    }
   },
 
   /**

@@ -1,6 +1,6 @@
 <layout title="我的">
 	<x-card>
-		<view class="header">
+		<view class="header" wx:if="{{isSetting}}">
 			<t-avatar image="{{avatar1}}" />
 			<view class="right">
 				<view class="nickname">
@@ -10,7 +10,12 @@
 				<text class="tip">遇见你是我最好的选择</text>
 			</view>
 		</view>
+		<view class="no-setting" wx:else>
+			<t-avatar />
+			<text class="tip">请完成个人设置</text>
+		</view>
 	</x-card>
+
 	<view class="body">
 		<t-cell leftIcon="user-setting" title="个人设置" hover arrow url="/pages/setting/user/index" />
 		<t-cell leftIcon="setting-1" title="系统设置" hover arrow url="/pages/setting/system/index" />

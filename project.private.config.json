@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/setting/user/index",
+          "pathName": "pages/setting/user/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "",
           "pathName": "pages/qr-page/index",
           "query": "",

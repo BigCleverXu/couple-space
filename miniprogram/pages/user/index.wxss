@@ -50,3 +50,18 @@
 .body {
 	margin-top: 20rpx;
 }
+
+.no-setting {
+	display: flex;
+	gap: 20rpx;
+}
+
+.no-setting .t-avatar {
+	width: 140rpx;
+	height: 140rpx;
+}
+
+.no-setting .tip {
+	margin-top: 20rpx;
+	font-size: x-large;
+}

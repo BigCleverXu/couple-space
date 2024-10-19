@@ -1,15 +1,66 @@
 // pages/setting/user/index.js
+import {
+  Request
+} from '../../../utils/request'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    avatar: ""
+    formData: {
+      avatar: "",
+      nickname: "",
+      direction: 'LEFT',
+      sex: "MALE"
+    }
+  },
+  async submit() {
+    const http = new Request(this)
+    const res = await http.submit({
+      type: "user",
+      action: "create",
+      data: this.data.formData
+    })
+    const resp = await http.info({
+      type: "user",
+      action: "info",
+      data: {
+        id: res._id
+      }
+    })
+    wx.setStorageSync('userInfo', resp.data)
+    // console.log(resp);
+    // const res = await submit(
+    //{
+    //     type: "user",
+    //     action: "create",
+    //     data: this.data.formData
+    //   },
+    //   this
+    // )
+    // const resp = await info({
+    //     type: "user",
+    //     action: "info",
+    //     data: {
+    //       id: res._id
+    //     }
+    //   },
+    //   this)
+    // console.log(resp);
+
+  },
+  change(e) {
+    const value = e.detail.value ?? e.detail
+    const key = `formData.${e.currentTarget.dataset.name}`
+    console.log(e);
+    this.setData({
+      [key]: value
+    })
   },
   bindchooseavatar(e) {
     this.setData({
-      avatar: e.detail.avatarUrl
+      ['formData.avatar']: e.detail.avatarUrl
     })
     // console.log(e);
   },

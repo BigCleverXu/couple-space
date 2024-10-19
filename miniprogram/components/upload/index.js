@@ -1,7 +1,7 @@
 // components/upload/index.js
 import {
   removeFiles,
-  uploadImgs
+  uploadImgsOfObjArr
 } from '../../utils/index'
 Component({
 
@@ -59,13 +59,9 @@ Component({
         files
       } = e.detail;
       console.log(files);
-      const cloudPath = await uploadImgs(files.map(m => m.url), this)
+      const cloudPath = await uploadImgsOfObjArr(files.map(m => m.url), this)
       this.setData({
-        originFiles: this.data.originFiles.concat(cloudPath.map(m => {
-          return {
-            url: m
-          }
-        })),
+        originFiles: cloudPath,
       });
       this.emitFiles()
     },

@@ -61,7 +61,7 @@ Component({
       console.log(files);
       const cloudPath = await uploadImgsOfObjArr(files.map(m => m.url), this)
       this.setData({
-        originFiles: cloudPath,
+        originFiles: this.data.originFiles.concat(cloudPath),
       });
       this.emitFiles()
     },

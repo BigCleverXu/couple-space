@@ -115,3 +115,10 @@ export function removeFiles(fileIDs) {
 		resolve()
 	})
 }
+
+// 对象深拷贝函数
+export function deepClone(initalObj) {
+	var obj = {};
+	obj = JSON.parse(JSON.stringify(initalObj));
+	return obj;
+}

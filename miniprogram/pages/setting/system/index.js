@@ -6,6 +6,9 @@ import {
 import {
   formatTime
 } from '../../../utils/time'
+import {
+  deepClone
+} from '../../../utils/index'
 Page({
 
   /**
@@ -19,8 +22,9 @@ Page({
     }
   },
   handleFormData() {
-    let _formData = this.data.formData
+    let _formData = JSON.parse(JSON.stringify(this.data.formData))
     _formData.banner = this.data.formData.banner.map(m => m.url)
+    console.log(_formData, '_formData');
     return _formData
   },
   async submit() {
@@ -31,12 +35,7 @@ Page({
     if (formData._id) {
       res = await http.update("system", formData)
       sysInfo = {
-        ...formData,
-        banner: formData.banner.map(m => {
-          return {
-            url: m
-          }
-        }),
+        ...this.data.formData,
         dateText: formatTime(formData.startDate, 'Y-M-D')
       }
     } else {

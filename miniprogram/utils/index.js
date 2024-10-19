@@ -51,68 +51,34 @@ export function showToast({
 		duration,
 	});
 }
+export function showLoading(that, message = '正在加载') {
+	Toast({
+		context: that,
+		selector: '#t-toast',
+		message,
+		theme: 'loading',
+		direction: 'column',
+		duration: 0,
+	});
+}
 export function hideLoading() {
 	hideToast();
 }
 
-/**
- * 
- * @param {object} data 
- * @param {string} data.type 数据库名字
- * @param {string} data.action 方法
- * @param {object} data.data 数据
- * @param {this} that 
- */
-export function submit(data, that) {
+export function uploadImgs(tempFilePaths, that) {
+	showLoading(that, '正在上传')
 	return new Promise((resolve) => {
-		showToast({
-			that,
-			theme: 'loading',
-			message: "正在提交"
-		})
-		wx.cloud.callFunction({
-			name: "cloudFunctions",
-			data
-		}).then(res => {
-			hideToast();
-			if (res.result.success) {
-				showMessage({
-					that,
-					content: "提交成功"
-				})
-				resolve(res.result.data)
-			} else {
-				showMessage({
-					that,
-					type: "error",
-					content: res.result.data
-				})
-			}
-		})
+		for (let i = 0; i < tempFilePaths.length; i++) { //多个图片的循环上传
+			wx.cloud.uploadFile({ //上传至微信云存储
+				cloudPath: 'image/' + new Date().getTime() + "_" + Math.floor(Math.random() * 1000) + ".jpg", //使用时间戳加随机数作为上传至云端的图片名称
+				filePath: tempFilePaths[i], // 本地文件路径
+				success: res => {
+					hideToast();
+					console.log("上传成功", res.fileID)
+					resolve(res.fileID)
+				}
+			})
+		}
 	})
-}
 
-export function info(data, that) {
-	return new Promise((resolve) => {
-		showToast({
-			that,
-			theme: 'loading',
-			message: "正在获取"
-		})
-		wx.cloud.callFunction({
-			name: "cloudFunctions",
-			data
-		}).then(res => {
-			hideToast();
-			if (res.result.success) {
-				resolve(res.result.data)
-			} else {
-				showMessage({
-					that,
-					type: "error",
-					content: res.result.data
-				})
-			}
-		})
-	})
 }

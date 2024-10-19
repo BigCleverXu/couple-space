@@ -13,19 +13,27 @@ exports.main = async (event, context) => {
   const action = event.action
   try {
     if (action == 'create') {
-      console.log(event.data);
       const res = await db.collection('user').add({
+        data: {
+          ...event.data,
+          _openid: wxContext.OPENID
+        }
+      })
+      return response.success(res)
+    }
+    if (action == 'update') {
+      console.log(event._id);
+      const res = await db.collection('user').doc(event._id).update({
         data: event.data
       })
       return response.success(res)
     }
     if (action == 'info') {
-      console.log(event.data);
-      const res = await db.collection('user').doc(event.data.id).get()
+      const res = await db.collection('user').doc(event._id).get()
       return response.success(res)
     }
   } catch (error) {
-    return response.fail(error.message)
+    return response.fail(JSON.stringify(error))
   }
   // return {
   //   rep: rep.success("666"),

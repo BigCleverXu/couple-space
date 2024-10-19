@@ -11,7 +11,7 @@
 		<t-switch custom-value="{{['LEFT','RIGHT']}}" defaultValue="{{formData.direction}}" label="{{['左', '右']}}" slot="note" data-name="direction" bind:change="change" />
 	</t-cell>
 	<t-cell title="性别" hover>
-		<t-switch custom-value="{{['MALE','FEMALE']}}" defaultValue="{{formData.sex}}" label="{{['男', '男']}}" slot="note" data-name="sex" bind:change="change" />
+		<t-switch custom-value="{{['MALE','FEMALE']}}" defaultValue="{{formData.sex}}" label="{{['男', '女']}}" slot="note" data-name="sex" bind:change="change" />
 	</t-cell>
 	<view class="btn-container">
 		<t-button theme="primary" bind:tap="submit">提交</t-button>

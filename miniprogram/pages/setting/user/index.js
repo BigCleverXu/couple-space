@@ -1,7 +1,11 @@
 // pages/setting/user/index.js
+const app = getApp()
 import {
   Request
 } from '../../../utils/request'
+import {
+  uploadImgs
+} from '../.././../utils/index'
 Page({
 
   /**
@@ -17,52 +21,36 @@ Page({
   },
   async submit() {
     const http = new Request(this)
-    const res = await http.submit({
-      type: "user",
-      action: "create",
-      data: this.data.formData
-    })
-    const resp = await http.info({
-      type: "user",
-      action: "info",
-      data: {
-        id: res._id
-      }
-    })
-    wx.setStorageSync('userInfo', resp.data)
-    // console.log(resp);
-    // const res = await submit(
-    //{
-    //     type: "user",
-    //     action: "create",
-    //     data: this.data.formData
-    //   },
-    //   this
-    // )
-    // const resp = await info({
-    //     type: "user",
-    //     action: "info",
-    //     data: {
-    //       id: res._id
-    //     }
-    //   },
-    //   this)
-    // console.log(resp);
+    const formData = this.data.formData
+    let res;
+    let userInfo;
+    if (formData._id) {
+      res = await http.update("user", formData)
+      userInfo = this.data.formData
+    } else {
+      res = await http.create("user", formData)
+      userInfo = await http.info("user", res._id)
+      this.setData({
+        formData: userInfo.data
+      })
+    }
+    app.globalData.userInfo = userInfo.data
 
+    wx.setStorageSync('userInfo', userInfo.data)
   },
   change(e) {
     const value = e.detail.value ?? e.detail
     const key = `formData.${e.currentTarget.dataset.name}`
-    console.log(e);
     this.setData({
       [key]: value
     })
   },
-  bindchooseavatar(e) {
+  async bindchooseavatar(e) {
+    const tempFileUrl = e.detail.avatarUrl
+    const res = await uploadImgs([tempFileUrl], this)
     this.setData({
-      ['formData.avatar']: e.detail.avatarUrl
+      ['formData.avatar']: res
     })
-    // console.log(e);
   },
   /**
    * 生命周期函数--监听页面加载
@@ -82,7 +70,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    const userInfo = wx.getStorageSync('userInfo')
+    if (userInfo) {
+      this.setData({
+        formData: userInfo
+      })
+    }
   },
 
   /**

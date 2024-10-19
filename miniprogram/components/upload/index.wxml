@@ -1,6 +1,6 @@
 <view class="wrapper">
 	<t-cell title="{{title}}" bordered="{{false}}"></t-cell>
 	<view class="t-upload">
-		<t-upload max="{{max}}" media-type="{{mediaType}}" files="{{originFiles}}" gridConfig="{{gridConfig}}" config="{{config}}" bind:success="handleSuccess" bind:remove="handleRemove" bind:click="handleClick" />
+		<t-upload max="{{max}}" media-type="{{mediaType}}" files="{{originFiles}}" gridConfig="{{gridConfig}}" config="{{config}}" bind:success="handleSuccess" bind:add="handleAdd" bind:remove="handleRemove" bind:click="handleClick" />
 	</view>
 </view>

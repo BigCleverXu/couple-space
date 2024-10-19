@@ -1,1 +1,12 @@
 /* pages/setting/system/index.wxss */
+.btn-container {
+	margin: 20rpx 0 20rpx;
+	width: 100%;
+	display: flex;
+	gap: 20rpx;
+}
+
+.t-button {
+	width: 100%;
+	margin: 10rpx 0;
+}

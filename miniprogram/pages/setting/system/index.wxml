@@ -1,4 +1,9 @@
 <layout title="系统设置" back>
-	<x-upload title="首页轮播图" max="{{3}}" bind:change="change" data-name="images" />
-	<x-date-time title="爱情开始的日期" date="{{formData.date}}" dateText="{{formData.dateText}}" bind:change="change" data-name="date" />
+	<x-upload title="首页轮播图" max="{{3}}" bind:change="change" data-name="banner" originFiles="{{formData.banner}}" />
+	<x-date-time title="爱情开始的日期" date="{{formData.startDate}}" dateText="{{formData.dateText}}" bind:change="change" data-name="startDate" />
+	<view class="btn-container">
+		<t-button theme="primary" bind:tap="submit">提交</t-button>
+	</view>
 </layout>
+<t-message id="t-message" />
+<t-toast id="t-toast" />

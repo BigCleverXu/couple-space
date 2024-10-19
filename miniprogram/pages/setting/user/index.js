@@ -54,7 +54,7 @@ Page({
     const tempFileUrl = e.detail.avatarUrl
     const res = await uploadImgs([tempFileUrl], this)
     this.setData({
-      ['formData.avatar']: res
+      ['formData.avatar']: res[0]
     })
   },
   /**

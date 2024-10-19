@@ -2,6 +2,7 @@
 const cloud = require('wx-server-sdk')
 const user = require('./user/index');
 const getOpenId = require('./getOpenId/index')
+const system = require('./system/index')
 
 cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
@@ -13,6 +14,8 @@ exports.main = async (event, context) => {
   switch (event.type) {
     case 'user':
       return await user.main(event, context);
+    case 'system':
+      return await system.main(event, context);
     case 'openId':
       return await getOpenId.main(event, context);
   }

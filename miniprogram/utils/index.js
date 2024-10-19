@@ -67,18 +67,30 @@ export function hideLoading() {
 
 export function uploadImgs(tempFilePaths, that) {
 	showLoading(that, '正在上传')
-	return new Promise((resolve) => {
+	return new Promise(async (resolve) => {
+		let fileIDArr = []
 		for (let i = 0; i < tempFilePaths.length; i++) { //多个图片的循环上传
-			wx.cloud.uploadFile({ //上传至微信云存储
+			const res = await wx.cloud.uploadFile({ //上传至微信云存储
 				cloudPath: 'image/' + new Date().getTime() + "_" + Math.floor(Math.random() * 1000) + ".jpg", //使用时间戳加随机数作为上传至云端的图片名称
 				filePath: tempFilePaths[i], // 本地文件路径
-				success: res => {
-					hideToast();
-					console.log("上传成功", res.fileID)
-					resolve(res.fileID)
-				}
 			})
+			hideToast();
+			console.log("上传成功", res.fileID)
+			fileIDArr.push(res.fileID)
 		}
+		console.log(fileIDArr, 'fileIDArr');
+		resolve(fileIDArr)
 	})
-
+}
+export function removeFiles(fileIDs) {
+	return new Promise((resolve) => {
+		if (fileIDs.length) {
+			wx.cloud.deleteFile({
+				fileList: fileIDs, // 对象存储文件ID列表，最多50个，从上传文件接口或者控制台获取
+			}).then(res => {
+				resolve()
+			}).catch(err => {})
+		}
+		resolve()
+	})
 }

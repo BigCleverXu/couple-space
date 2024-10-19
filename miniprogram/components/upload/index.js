@@ -1,4 +1,8 @@
 // components/upload/index.js
+import {
+  removeFiles,
+  uploadImgs
+} from '../../utils/index'
 Component({
 
   /**
@@ -49,22 +53,39 @@ Component({
     emitFiles() {
       this.triggerEvent("change", this.data.originFiles)
     },
-    handleSuccess(e) {
+    async handleAdd(e) {
+      // console.log(e);
       const {
         files
       } = e.detail;
+      console.log(files);
+      const cloudPath = await uploadImgs(files.map(m => m.url), this)
       this.setData({
-        originFiles: files,
+        originFiles: this.data.originFiles.concat(cloudPath.map(m => {
+          return {
+            url: m
+          }
+        })),
       });
       this.emitFiles()
     },
-    handleRemove(e) {
+    handleSuccess(e) {
+      // const {
+      //   files
+      // } = e.detail;
+      // this.setData({
+      //   originFiles: this.data.originFiles.concat(files),
+      // });
+      // this.emitFiles()
+    },
+    async handleRemove(e) {
       const {
         index
       } = e.detail;
       const {
         originFiles
       } = this.data;
+      await removeFiles([originFiles[index].url])
       originFiles.splice(index, 1);
       this.setData({
         originFiles,

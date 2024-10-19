@@ -29,14 +29,16 @@ Page({
       userInfo = this.data.formData
     } else {
       res = await http.create("user", formData)
-      userInfo = await http.info("user", res._id)
+      const resp = await http.info("user", res._id)
+      userInfo = resp.data
       this.setData({
-        formData: userInfo.data
+        formData: userInfo
       })
     }
-    app.globalData.userInfo = userInfo.data
-
-    wx.setStorageSync('userInfo', userInfo.data)
+    if (userInfo) {
+      app.globalData.userInfo = userInfo
+      wx.setStorageSync('userInfo', userInfo)
+    }
   },
   change(e) {
     const value = e.detail.value ?? e.detail
@@ -63,19 +65,19 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
     const userInfo = wx.getStorageSync('userInfo')
     if (userInfo) {
       this.setData({
         formData: userInfo
       })
     }
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+
   },
 
   /**

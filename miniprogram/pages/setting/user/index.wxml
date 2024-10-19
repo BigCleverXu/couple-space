@@ -8,10 +8,10 @@
 	</t-cell>
 	<t-input label="昵称" align="right" placeholder="请输入昵称" data-name="nickname" bind:change="change" value="{{formData.nickname}}"></t-input>
 	<t-cell title="方向" hover>
-		<t-switch custom-value="{{['LEFT','RIGHT']}}" defaultValue="{{formData.direction}}" label="{{['左', '右']}}" slot="note" data-name="direction" bind:change="change" />
+		<t-switch custom-value="{{['LEFT','RIGHT']}}" value="{{formData.direction}}" label="{{['左', '右']}}" slot="note" data-name="direction" bind:change="change" />
 	</t-cell>
 	<t-cell title="性别" hover>
-		<t-switch custom-value="{{['MALE','FEMALE']}}" defaultValue="{{formData.sex}}" label="{{['男', '女']}}" slot="note" data-name="sex" bind:change="change" />
+		<t-switch custom-value="{{['MALE','FEMALE']}}" value="{{formData.sex}}" label="{{['男', '女']}}" slot="note" data-name="sex" bind:change="change" />
 	</t-cell>
 	<view class="btn-container">
 		<t-button theme="primary" bind:tap="submit">提交</t-button>

@@ -6,8 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatar1: 'https://tdesign.gtimg.com/mobile/demos/avatar1.png',
-    avatar2: 'https://tdesign.gtimg.com/mobile/demos/avatar2.png',
+    userInfo: {},
     isSetting: false
   },
 
@@ -15,11 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    if (app.globalData.userInfo) {
-      this.setData({
-        isSetting: true
-      })
-    }
+
   },
 
   /**
@@ -33,7 +28,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    const userInfo = wx.getStorageSync('userInfo') || false
+    if (userInfo) {
+      this.setData({
+        isSetting: true,
+        userInfo
+      })
+    }
   },
 
   /**

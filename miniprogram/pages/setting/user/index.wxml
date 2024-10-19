@@ -7,6 +7,7 @@
 		</view>
 	</t-cell>
 	<t-input label="昵称" align="right" placeholder="请输入昵称" data-name="nickname" bind:change="change" value="{{formData.nickname}}"></t-input>
+	<t-input label="说说" align="right" placeholder="请输入说说" data-name="tip" bind:change="change" value="{{formData.tip}}"></t-input>
 	<t-cell title="方向" hover>
 		<t-switch custom-value="{{['LEFT','RIGHT']}}" value="{{formData.direction}}" label="{{['左', '右']}}" slot="note" data-name="direction" bind:change="change" />
 	</t-cell>

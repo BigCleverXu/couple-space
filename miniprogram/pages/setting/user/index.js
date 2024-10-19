@@ -16,7 +16,8 @@ Page({
       avatar: "",
       nickname: "",
       direction: 'LEFT',
-      sex: "MALE"
+      sex: "MALE",
+      tip: "遇见你是我最好的选择"
     }
   },
   async submit() {
@@ -37,8 +38,10 @@ Page({
     }
     if (userInfo) {
       app.globalData.userInfo = userInfo
+      console.log(userInfo);
       wx.setStorageSync('userInfo', userInfo)
     }
+    wx.navigateBack()
   },
   change(e) {
     const value = e.detail.value ?? e.detail

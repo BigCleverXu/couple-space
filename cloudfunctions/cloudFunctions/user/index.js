@@ -32,6 +32,15 @@ exports.main = async (event, context) => {
       const res = await db.collection('user').doc(event._id).get()
       return response.success(res)
     }
+    if (action == 'getByOpenId') {
+      const res = await db.collection('user').aggregate()
+        .match({
+          _openid: wxContext.OPENID
+        })
+        .end()
+        console.log(res);
+      return response.success(res)
+    }
   } catch (error) {
     return response.fail(JSON.stringify(error))
   }

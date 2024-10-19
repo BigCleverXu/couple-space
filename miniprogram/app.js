@@ -12,7 +12,27 @@ App({
         env: 'love-5gwx8a4pd67d3c1a',
         traceUser: true,
       });
+      this.getUserInfo()
     }
     this.globalData = {};
   },
+  getUserInfo() {
+    const userInfo = wx.getStorageSync('userInfo') || false
+    if (!userInfo) {
+      wx.cloud.callFunction({
+        name: "cloudFunctions",
+        data: {
+          type: "user",
+          action: "getByOpenId"
+        }
+      }).then(({
+        result
+      }) => {
+        if (result.success) {
+          const userInfo = result.data.list[0]
+          wx.setStorageSync('userInfo', userInfo)
+        }
+      })
+    }
+  }
 });

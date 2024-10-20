@@ -16,6 +16,7 @@ exports.main = async (event, context) => {
       const res = await db.collection('system').add({
         data: {
           ...event.data,
+          createdAt: new Date().getTime(),
           _openid: wxContext.OPENID
         }
       })
@@ -24,12 +25,19 @@ exports.main = async (event, context) => {
     if (action == 'update') {
       console.log(event._id);
       const res = await db.collection('system').doc(event._id).update({
-        data: event.data
+        data: {
+          ...event.data,
+          updatedAt: new Date().getTime()
+        }
       })
       return response.success(res)
     }
     if (action == 'info') {
       const res = await db.collection('system').doc(event._id).get()
+      return response.success(res)
+    }
+    if (action == 'getOne') {
+      const res = await db.collection('system').orderBy('createdAt', 'desc').limit(1).get()
       return response.success(res)
     }
   } catch (error) {

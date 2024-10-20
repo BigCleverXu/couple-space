@@ -11,7 +11,7 @@ const db = cloud.database();
 exports.main = async (event, context) => {
 	const wxContext = cloud.getWXContext()
 	return response.success({
-		openid: wxContext.OPENID
+		openId: wxContext.OPENID
 	})
 	// return {
 	//   event,

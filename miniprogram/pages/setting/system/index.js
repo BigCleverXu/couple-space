@@ -1,11 +1,9 @@
 // pages/setting/system/index.js
 const app = getApp()
+import dayjs from '../../../miniprogram_npm/dayjs/index'
 import {
   Request
 } from '../../../utils/request'
-import {
-  formatTime
-} from '../../../utils/time'
 import {
   deepClone,
   urlToObj
@@ -36,7 +34,7 @@ Page({
       res = await http.update("system", formData)
       sysInfo = {
         ...this.data.formData,
-        dateText: formatTime(formData.startDate, 'Y-M-D')
+        dateText: dayjs(formData.startDate).format('YYYY-MM-DD')
       }
     } else {
       res = await http.create("system", formData)
@@ -44,7 +42,7 @@ Page({
       sysInfo = {
         ...resp.data,
         banner: urlToObj(resp.data.banner),
-        dateText: formatTime(resp.data.startDate, 'Y-M-D')
+        dateText: dayjs(resp.data.startDate).format('YYYY-MM-DD')
       }
       this.setData({
         formData: sysInfo
@@ -87,7 +85,7 @@ Page({
       const that = this
       const startDate = that.data.formData.startDate
       this.setData({
-        ['formData.dateText']: formatTime(startDate, 'Y-M-D')
+        ['formData.dateText']: dayjs(startDate).format('YYYY-MM-DD')
       })
     }
   },

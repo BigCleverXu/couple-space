@@ -7,6 +7,7 @@ export class Request {
 	constructor(that) {
 		this.that = that;
 	}
+
 	create(type, formData) {
 		return new Promise((resolve) => {
 			showLoading(this.that, "正在提交")
@@ -35,6 +36,7 @@ export class Request {
 			})
 		})
 	}
+
 	update(type, formData) {
 		return new Promise((resolve) => {
 			const _id = formData._id
@@ -69,6 +71,7 @@ export class Request {
 			})
 		})
 	}
+
 	info(type, _id) {
 		return new Promise((resolve) => {
 			showLoading(this.that, "正在获取")
@@ -93,6 +96,7 @@ export class Request {
 			})
 		})
 	}
+	
 	all(type) {
 		return new Promise((resolve) => {
 			showLoading(this.that, "正在获取")

@@ -2,6 +2,11 @@ import Message from 'tdesign-miniprogram/message/index';
 import Toast, {
 	hideToast
 } from 'tdesign-miniprogram/toast/index';
+
+/**
+ * 预览方法
+ * @param {*} e 方法的e 
+ */
 export function previewByUrl(e) {
 	const {
 		url
@@ -12,6 +17,12 @@ export function previewByUrl(e) {
 		urls: [url],
 	})
 }
+
+/**
+ * 跳转方法
+ * @param {*} path 跳转页面path
+ * @param {*} params 参数
+ */
 export function to(path, params = {}) {
 	let query = ""
 	const keys = Object.keys(params)
@@ -23,6 +34,11 @@ export function to(path, params = {}) {
 		url: path + query
 	})
 }
+
+/**
+ * 弹出message
+ * @param {Object} param
+ */
 export function showMessage({
 	that,
 	type = "success",
@@ -36,6 +52,11 @@ export function showMessage({
 		content,
 	});
 }
+
+/**
+ * toast显示
+ * @param {Object} param 
+ */
 export function showToast({
 	that,
 	message = '成功',
@@ -51,6 +72,12 @@ export function showToast({
 		duration,
 	});
 }
+
+/**
+ * 加载状态 
+ * @param {*} that 
+ * @param {String} message 
+ */
 export function showLoading(that, message = '正在加载') {
 	Toast({
 		context: that,
@@ -61,10 +88,19 @@ export function showLoading(that, message = '正在加载') {
 		duration: 0,
 	});
 }
+
+/**
+ * 隐藏加载状态
+ */
 export function hideLoading() {
 	hideToast();
 }
 
+/**
+ * 文件上传
+ * @param {Array<string>} tempFilePaths 
+ * @param {*} that 
+ */
 export function uploadImgs(tempFilePaths, that) {
 	showLoading(that, '正在上传')
 	return new Promise(async (resolve) => {
@@ -82,6 +118,12 @@ export function uploadImgs(tempFilePaths, that) {
 		resolve(fileIDArr)
 	})
 }
+
+/**
+ * 文件上传 返回url格式
+ * @param {Array<string>} tempFilePaths 
+ * @param {*} that 
+ */
 export function uploadImgsOfObjArr(tempFilePaths, that) {
 	showLoading(that, '正在上传')
 	return new Promise(async (resolve) => {
@@ -103,6 +145,11 @@ export function uploadImgsOfObjArr(tempFilePaths, that) {
 		}))
 	})
 }
+
+/**
+ * 删除文件
+ * @param {Array<string>} fileIDs 
+ */
 export function removeFiles(fileIDs) {
 	return new Promise((resolve) => {
 		if (fileIDs.length) {
@@ -116,16 +163,29 @@ export function removeFiles(fileIDs) {
 	})
 }
 
-// 对象深拷贝函数
+/**
+ * 对象深拷贝函数
+ * @param {*} initalObj 
+ */
 export function deepClone(initalObj) {
 	var obj = {};
 	obj = JSON.parse(JSON.stringify(initalObj));
 	return obj;
 }
 
+/**
+ * 根据怕openId 获取个人数据
+ * @param {*} arr 
+ * @param {string} openId 
+ */
 export function getUserByOpenId(arr, openId) {
 	return arr.find(f => f._openid == openId)
 }
+
+/**
+ * 转url数组对象
+ * @param {*} arr 
+ */
 export function urlToObj(arr) {
 	const _arr = deepClone(arr)
 	return _arr.map(m => {

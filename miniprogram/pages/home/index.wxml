@@ -1,15 +1,15 @@
 <layout title="小窝">
-	<view>
-		<t-swiper current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" list="{{swiperList}}" navigation="{{ { type: 'dots-bar' } }}" bind:click="onPreview" />
-		<t-image-viewer usingCustomNavbar showIndex="{{current}}" visible="{{visible}}" images="{{swiperList}}" bind:close="onClose"></t-image-viewer>
+	<view wx:if="{{sysInfo.banner.length}}">
+		<t-swiper current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" list="{{sysInfo.banner}}" navigation="{{ { type: 'dots-bar' } }}" bind:click="onPreview" />
+		<t-image-viewer usingCustomNavbar showIndex="{{current}}" visible="{{visible}}" images="{{sysInfo.banner}}" bind:close="onClose"></t-image-viewer>
 	</view>
 	<x-card x-class="time-container">
-		<t-avatar image="{{avatar1}}" />
+		<t-avatar image="{{avatarLeft}}" />
 		<view class="center-container">
 			<span class="top">在一起已经</span>
-			<span class="bottom">100 <text class="day">天</text></span>
+			<span class="bottom">{{diff}} <text class="day">天</text></span>
 		</view>
-		<t-avatar image="{{avatar2}}" />
+		<t-avatar image="{{avatarRight}}" />
 	</x-card>
 	<t-grid column="{{3}}" theme="card" class="t-grid">
 		<t-grid-item text="{{item.label}}" wx:for="{{tabs}}" image="{{item.img}}" data-url="{{item.url}}" bindclick="toInfo" />

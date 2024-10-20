@@ -122,3 +122,15 @@ export function deepClone(initalObj) {
 	obj = JSON.parse(JSON.stringify(initalObj));
 	return obj;
 }
+
+export function getUserByOpenId(arr, openId) {
+	return arr.find(f => f._openid == openId)
+}
+export function urlToObj(arr) {
+	const _arr = deepClone(arr)
+	return _arr.map(m => {
+		return {
+			url: m
+		}
+	})
+}

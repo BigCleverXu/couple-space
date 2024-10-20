@@ -1,15 +1,8 @@
 // pages/home/index.js
-const imageCdn = 'https://tdesign.gtimg.com/mobile/demos';
-const swiperList = [
-  `${imageCdn}/swiper1.png`,
-  `${imageCdn}/swiper2.png`,
-  `${imageCdn}/swiper1.png`,
-  `${imageCdn}/swiper2.png`,
-  `${imageCdn}/swiper1.png`,
-];
 import {
   to
 } from '../../utils/index'
+import dayjs from '../../miniprogram_npm/dayjs/index'
 Page({
 
   /**
@@ -20,10 +13,10 @@ Page({
     autoplay: true,
     duration: 500,
     interval: 5000,
-    swiperList,
-    url: "https://ts1.cn.mm.bing.net/th/id/R-C.4f1a35d455269c72bf54ac019dd95b10?rik=Pe6L8lmQk5hlOg&riu=http%3a%2f%2fdesk.fd.zol-img.com.cn%2ft_s960x600c5%2fg5%2fM00%2f0A%2f07%2fChMkJ1Zf6CyIWRXaAARjr0ZnlEEAAFpMgLQ5xwABGPH543.jpg&ehk=7LJMKFFlAN6Ost%2b4D62vwIxl9A1zzQWjvIBTnmq06W0%3d&risl=&pid=ImgRaw&r=0",
-    avatar1: 'https://tdesign.gtimg.com/mobile/demos/avatar1.png',
-    avatar2: 'https://tdesign.gtimg.com/mobile/demos/avatar2.png',
+    sysInfo: {},
+    diff: 0,
+    avatarLeft: 'https://tdesign.gtimg.com/mobile/demos/avatar1.png',
+    avatarRight: 'https://tdesign.gtimg.com/mobile/demos/avatar2.png',
     tabs: [{
       label: "纪念日",
       img: "/images/icons/calendar.png",
@@ -56,6 +49,26 @@ Page({
   toInfo(e) {
     to(e.target.dataset.url)
   },
+  init() {
+    const sysInfo = wx.getStorageSync('sysInfo')
+    const userList = wx.getStorageSync('userList')
+    if (sysInfo) {
+      const diff = dayjs().diff(sysInfo.startDate, 'day')
+      sysInfo.banner = sysInfo.banner.map(m => m.url)
+      this.setData({
+        sysInfo,
+        diff
+      })
+    }
+    if (userList && userList.length) {
+      const userLeft = userList.find(f => f.direction == 'LEFT') || {}
+      const userRight = userList.find(f => f.direction == 'RIGHT') || {}
+      this.setData({
+        avatarLeft: userLeft.avatar,
+        avatarRight: userRight.avatar
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -74,7 +87,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.init()
   },
 
   /**

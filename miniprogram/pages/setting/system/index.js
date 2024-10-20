@@ -7,7 +7,8 @@ import {
   formatTime
 } from '../../../utils/time'
 import {
-  deepClone
+  deepClone,
+  urlToObj
 } from '../../../utils/index'
 Page({
 
@@ -22,9 +23,8 @@ Page({
     }
   },
   handleFormData() {
-    let _formData = JSON.parse(JSON.stringify(this.data.formData))
+    let _formData = deepClone(this.data.formData)
     _formData.banner = this.data.formData.banner.map(m => m.url)
-    console.log(_formData, '_formData');
     return _formData
   },
   async submit() {
@@ -43,11 +43,7 @@ Page({
       const resp = await http.info("system", res._id)
       sysInfo = {
         ...resp.data,
-        banner: resp.data.banner.map(m => {
-          return {
-            url: m
-          }
-        }),
+        banner: urlToObj(resp.data.banner),
         dateText: formatTime(resp.data.startDate, 'Y-M-D')
       }
       this.setData({

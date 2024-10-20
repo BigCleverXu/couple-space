@@ -93,4 +93,27 @@ export class Request {
 			})
 		})
 	}
+	all(type) {
+		return new Promise((resolve) => {
+			showLoading(this.that, "正在获取")
+			wx.cloud.callFunction({
+				name: "cloudFunctions",
+				data: {
+					action: "all",
+					type
+				}
+			}).then(res => {
+				hideLoading();
+				if (res.result.success) {
+					resolve(res.result.data)
+				} else {
+					showMessage({
+						that: this.that,
+						type: "error",
+						content: res.result.data
+					})
+				}
+			})
+		})
+	}
 }

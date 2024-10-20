@@ -4,7 +4,8 @@ import {
   Request
 } from '../../../utils/request'
 import {
-  uploadImgs
+  uploadImgs,
+  getUserByOpenId
 } from '../.././../utils/index'
 Page({
 
@@ -23,22 +24,19 @@ Page({
   async submit() {
     const http = new Request(this)
     const formData = this.data.formData
+    const openId = wx.getStorageSync('openId')
     let res;
     let userInfo;
     if (formData._id) {
       res = await http.update("user", formData)
-      userInfo = this.data.formData
     } else {
       res = await http.create("user", formData)
-      const resp = await http.info("user", res._id)
-      userInfo = resp.data
-      this.setData({
-        formData: userInfo
-      })
     }
+    const resp = await http.all('user')
+    wx.setStorageSync('userList', resp.data)
+    userInfo = getUserByOpenId(resp.data, openId)
     if (userInfo) {
       app.globalData.userInfo = userInfo
-      console.log(userInfo);
       wx.setStorageSync('userInfo', userInfo)
     }
     wx.navigateBack()

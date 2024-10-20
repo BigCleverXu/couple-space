@@ -1,6 +1,6 @@
 <layout title="小窝">
 	<view wx:if="{{sysInfo.banner.length}}">
-		<t-swiper current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" list="{{sysInfo.banner}}" navigation="{{ { type: 'dots-bar' } }}" bind:click="onPreview" />
+		<t-swiper current="{{swiperConfig.current}}" autoplay="{{swiperConfig.autoplay}}" duration="{{swiperConfig.duration}}" interval="{{swiperConfig.interval}}" list="{{sysInfo.banner}}" navigation="{{swiperConfig.navigation }}" bind:click="onPreview" />
 		<t-image-viewer usingCustomNavbar showIndex="{{current}}" visible="{{visible}}" images="{{sysInfo.banner}}" bind:close="onClose"></t-image-viewer>
 	</view>
 	<x-card x-class="time-container">

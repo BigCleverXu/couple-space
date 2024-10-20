@@ -9,10 +9,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current: 1,
-    autoplay: true,
-    duration: 500,
-    interval: 5000,
+    swiperConfig: {
+      autoplay: true,
+      duration: 500,
+      interval: 5000,
+      current: 1,
+      navigation:{ type: 'dots-bar' } 
+    },
     sysInfo: {},
     diff: 0,
     avatarLeft: 'https://tdesign.gtimg.com/mobile/demos/avatar1.png',

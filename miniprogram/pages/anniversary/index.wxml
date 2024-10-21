@@ -1,23 +1,23 @@
 <layout back="{{true}}" title="纪念日">
-	<x-card x-class="last-card">
-		<view class="title">第一次接吻已有</view>
-		<view class="day">12 <text class="unit">天</text> </view>
+	<x-card x-class="last-card" wx:if="{{list.length>0}}"> 
+		<view class="title">第一次{{nearInfo.title}}{{nearInfo.isBirth ?'还有': '已有'}}</view>
+		<view class="day">{{nearInfo.diff}} <text class="unit">天</text> </view>
 		<view class="start-date">
 			<text>起始日: </text>
-			<text>2019年12月28日</text>
+			<text>{{nearInfo.dateText}}</text>
 		</view>
 	</x-card>
 	<view wx:if="{{list.length>0}}">
 		<block wx:for="{{list}}">
-			<x-card x-class="card" bind:tap="toShowInfo" data-id="{{index+1}}">
+			<x-card x-class="card" bind:tap="toShowInfo" data-id="{{item._id}}">
 				<view class="row">
 					<view class="left">
-						<t-icon wx:if="{{index ==0}}" name="heart" size="48rpx" />
+						<t-icon wx:if="{{!item.isBirth}}" name="heart" size="48rpx" />
 						<t-icon wx:else name="sandwich" size="48rpx" />
 						<text class="text">{{item.title}}</text>
 					</view>
 					<view class="right">
-						<text class="date">{{item.date}}天</text>
+						<text class="date">{{item.diff}}天</text>
 					</view>
 				</view>
 			</x-card>

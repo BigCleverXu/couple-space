@@ -3,8 +3,12 @@ import {
   to,
   showMessage,
   showToast,
-  hideLoading
+  hideLoading,
+  deepClone
 } from '../../utils/index'
+import {
+  Request
+} from '../../utils/request'
 Page({
 
   /**
@@ -13,19 +17,8 @@ Page({
   data: {
     showDrawer: false,
     showDialog: false,
-    list: [{
-      id: 1,
-      title: "第一次接吻已有",
-      date: "12"
-    }, {
-      id: 2,
-      title: "我的生日还有",
-      date: "173"
-    }, {
-      id: 3,
-      title: "TA的生日还有",
-      date: "17"
-    }, ]
+    list: [],
+    nearInfo: {}
   },
   toShowInfo() {
     this.setData({
@@ -39,7 +32,7 @@ Page({
   },
   toAdd(e) {
     console.log(e);
-    
+
     const {
       id
     } = e.currentTarget.dataset
@@ -85,12 +78,19 @@ Page({
       showDialog: false
     });
   },
+  async init() {
+    const request = new Request()
+    const res = await request.list('anniversary')
+    const _sort = deepClone(res.data).sort((a, b) => a.diff - b.diff) || []
+    this.setData({
+      list: res.data,
+      nearInfo: _sort[0]
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
-  },
+  onLoad(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -103,7 +103,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.init()
   },
 
   /**

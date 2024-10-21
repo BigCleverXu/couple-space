@@ -2,8 +2,13 @@
 import {
   showMessage,
   showToast,
-  hideLoading
+  hideLoading,
+  deepClone
 } from '../../../utils/index'
+import {
+  Request
+} from '../../../utils/request'
+import dayjs from '../../../miniprogram_npm/dayjs/index'
 Page({
 
   /**
@@ -17,7 +22,7 @@ Page({
       date: new Date().getTime(),
       dateText: "",
       isBirth: false,
-      images: []
+      image: []
     }
   },
   change(e) {
@@ -28,22 +33,16 @@ Page({
       [key]: value
     })
   },
-  submit(e) {
-    const that = this
-    showToast({
-      that,
-      theme: "loading",
-      message: "正在提交",
-      duration: 0
-    })
-    setTimeout(() => {
-      hideLoading()
-      showMessage({
-        that,
-        content: "成功",
-      })
-    }, 1000)
-    // console.log(e);
+  handleFormData() {
+    let _formData = deepClone(this.data.formData)
+    _formData.image = this.data.formData.image.map(m => m.url)
+    return _formData
+  },
+  async submit(e) {
+    const request = new Request()
+    const formData = this.handleFormData()
+    await request.create('anniversary', formData)
+    wx.navigateBack()
   },
   delete() {
     this.setData({
@@ -55,7 +54,7 @@ Page({
       show: false
     })
   },
-  confirmDialog(){
+  confirmDialog() {
     showToast({
       that: this,
       theme: "loading",
@@ -76,6 +75,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.init()
     const {
       id
     } = options
@@ -85,20 +85,21 @@ Page({
       })
     }
   },
-
+  init() {
+    const dateText = dayjs().format('YYYY-MM-DD')
+    this.setData({
+      'formData.dateText': dateText
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {
-
-  },
+  onReady() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-
-  },
+  onShow() {},
 
   /**
    * 生命周期函数--监听页面隐藏

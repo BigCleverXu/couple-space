@@ -7,7 +7,34 @@ export class Request {
 	constructor(that) {
 		this.that = that;
 	}
-
+	list(type, query) {
+		return new Promise((resolve) => {
+			showLoading(this.that, "正在获取")
+			wx.cloud.callFunction({
+				name: "cloudFunctions",
+				data: {
+					type,
+					action: "list",
+					data: query
+				}
+			}).then(res => {
+				hideLoading();
+				if (res.result.success) {
+					showMessage({
+						that: this.that,
+						content: "获取成功"
+					})
+					resolve(res.result.data)
+				} else {
+					showMessage({
+						that: this.that,
+						type: "error",
+						content: res.result.data
+					})
+				}
+			})
+		})
+	}
 	create(type, formData) {
 		return new Promise((resolve) => {
 			showLoading(this.that, "正在提交")
@@ -96,7 +123,7 @@ export class Request {
 			})
 		})
 	}
-	
+
 	all(type) {
 		return new Promise((resolve) => {
 			showLoading(this.that, "正在获取")

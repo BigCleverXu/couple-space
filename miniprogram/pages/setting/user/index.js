@@ -22,7 +22,7 @@ Page({
     }
   },
   async submit() {
-    const http = new Request(this)
+    const http = new Request()
     const formData = this.data.formData
     const openId = wx.getStorageSync('openId')
     let res;

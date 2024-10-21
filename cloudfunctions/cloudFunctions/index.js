@@ -3,6 +3,7 @@ const cloud = require('wx-server-sdk')
 const user = require('./user/index');
 const getOpenId = require('./getOpenId/index')
 const system = require('./system/index')
+const anniversary = require('./anniversary/index')
 
 cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
@@ -10,12 +11,14 @@ cloud.init({
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const wxContext = cloud.getWXContext()
+  // const wxContext = cloud.getWXContext()
   switch (event.type) {
     case 'user':
       return await user.main(event, context);
     case 'system':
       return await system.main(event, context);
+    case 'anniversary':
+      return await anniversary.main(event, context);
     case 'openId':
       return await getOpenId.main(event, context);
   }

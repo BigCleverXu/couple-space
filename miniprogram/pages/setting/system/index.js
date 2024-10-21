@@ -26,7 +26,7 @@ Page({
     return _formData
   },
   async submit() {
-    const http = new Request(this)
+    const http = new Request()
     const formData = this.handleFormData()
     let res;
     let sysInfo;

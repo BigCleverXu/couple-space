@@ -4,6 +4,7 @@ const user = require('./user/index');
 const getOpenId = require('./getOpenId/index')
 const system = require('./system/index')
 const anniversary = require('./anniversary/index')
+const dayil = require('./dayil/index')
 
 cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
@@ -19,6 +20,8 @@ exports.main = async (event, context) => {
       return await system.main(event, context);
     case 'anniversary':
       return await anniversary.main(event, context);
+    case 'dayil':
+      return await dayil.main(event, context);
     case 'openId':
       return await getOpenId.main(event, context);
   }

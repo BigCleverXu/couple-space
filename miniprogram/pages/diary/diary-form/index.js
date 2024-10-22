@@ -1,9 +1,11 @@
 // pages/anniversary/anniversary-form/index.js
 import {
-  showMessage,
-  showToast,
-  hideLoading
+  objToStringUrl,
+  deepClone
 } from '../../../utils/index'
+import {
+  Request
+} from '../../../utils/request'
 Page({
 
   /**
@@ -44,22 +46,18 @@ Page({
   delete() {
 
   },
-  confirmDialog() {
+  handleFormData() {
+    let _formData = deepClone(this.data.formData)
+    _formData.images = objToStringUrl(this.data.formData.images)
+    return _formData
+  },
+  async confirmDialog() {
     const that = this
     that.closeDialog()
-    showToast({
-      that,
-      theme: "loading",
-      message: "正在提交",
-      duration: 0
-    })
-    setTimeout(() => {
-      hideLoading()
-      showMessage({
-        that,
-        content: "成功",
-      })
-    }, 1000)
+    const formData = this.handleFormData()
+    const request = new Request()
+    await request.create('dayil', formData)
+    wx.navigateBack()
   },
   /**
    * 生命周期函数--监听页面加载

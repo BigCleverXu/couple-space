@@ -194,3 +194,11 @@ export function urlToObj(arr) {
 		}
 	})
 }
+/**
+ * 转url数组对象
+ * @param {*} arr 
+ */
+export function objToStringUrl(arr) {
+	const _arr = deepClone(arr)
+	return _arr.map(item => item.url)
+}

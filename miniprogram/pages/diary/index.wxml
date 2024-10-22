@@ -1,15 +1,23 @@
 <layout back="{{true}}" title="今天我想说">
-	<x-card x-class="card">
-		<view class="header">
-			<view class="ring"></view>
-			<text class="text">2024-01-09</text>
-		</view>
-		<view class="body">
-			<p class="text">
-				世界我们的，也是你们的
-			</p>
-			<image src="https://pic.rmb.bdstatic.com/bjh/news/af09b881b60f965321a2edf4e1951d076038.png" mode="aspectFill" data-url="https://pic.rmb.bdstatic.com/bjh/news/af09b881b60f965321a2edf4e1951d076038.png" bind:tap="preview" />
-		</view>
-	</x-card>
+	<block wx:if="{{list.length>0}}">
+		<x-card x-class="card" wx:for="{{list}}">
+			<view class="header">
+				<view class="ring"></view>
+				<text class="text">{{item.createText}}</text>
+			</view>
+			<view class="body">
+				<p class="text">
+					{{item.title}}
+				</p>
+				<view class="img-container">
+					<image wx:for="{{item.images}}" wx:for-item="url" src="{{url}}" mode="aspectFill" data-index="{{index}}" data-urls="{{item.images}}" bind:tap="preview" />
+				</view>
+			</view>
+		</x-card>
+	</block>
+	<t-empty wx:else icon="info-circle-filled" description="暂无数据，快去和TA创建吧~" />
 	<t-fab using-custom-navbar icon="add" draggable y-bounds="{{[0, 132]}}" bind:click="toAdd"></t-fab>
 </layout>
+<t-message id="t-message" />
+<t-toast id="t-toast" />
+<t-image-viewer usingCustomNavbar showIndex="{{current}}" visible="{{visible}}" images="{{images}}" bind:close="onClose"></t-image-viewer>

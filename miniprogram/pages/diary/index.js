@@ -1,36 +1,55 @@
 // pages/diary/index.js
 import {
-  previewByUrl,
   to
 } from '../../utils/index'
+import {
+  Request
+} from '../../utils/request'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: [],
+    current: 1,
+    visible: false,
+    images: [],
   },
-  toAdd(e) {
-    const {
-      id
-    } = e.target.dataset
-    let query = {}
-    if (id) {
-      query = {
-        id
-      }
-    }
-    to("/pages/diary/diary-form/index", query)
+  onClose() {
+    this.setData({
+      visible: false
+    })
+  },
+  toAdd() {
+    to("/pages/diary/diary-form/index")
   },
   preview(e) {
-    previewByUrl(e)
+    const {
+      index,
+      urls
+    } = e.target.dataset
+    this.setData({
+      images: urls,
+      current: index + 1,
+      visible: true
+    })
+    // previewByUrl(e)
+  },
+  async init() {
+    const request = new Request()
+    const {
+      data
+    } = await request.list('dayil')
+    this.setData({
+      list: data
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.init()
   },
 
   /**

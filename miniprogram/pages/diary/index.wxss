@@ -1,4 +1,8 @@
 /* pages/diary/index.wxss */
+.card {
+	margin-bottom: 20rpx;
+}
+
 .card .header {
 	display: flex;
 	align-items: center;
@@ -13,6 +17,12 @@
 	margin-top: 20rpx;
 }
 
+.card .img-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20rpx;
+}
+
 .card .body image {
 	display: block;
 	margin-top: 20rpx;
@@ -25,4 +35,8 @@
 	height: 20rpx;
 	border: 4rpx solid var(--td-error-color, #e34d59);
 	border-radius: 50%;
+}
+
+.t-empty {
+	margin-top: 350rpx;
 }

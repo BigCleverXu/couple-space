@@ -123,6 +123,30 @@ export class Request {
 			})
 		})
 	}
+	remove(type, _id) {
+		return new Promise((resolve) => {
+			showLoading(this.that, "正在删除")
+			wx.cloud.callFunction({
+				name: "cloudFunctions",
+				data: {
+					action: "delete",
+					type,
+					_id
+				}
+			}).then(res => {
+				hideLoading();
+				if (res.result.success) {
+					resolve(res.result.data)
+				} else {
+					showMessage({
+						that: this.that,
+						type: "error",
+						content: res.result.data
+					})
+				}
+			})
+		})
+	}
 
 	all(type) {
 		return new Promise((resolve) => {

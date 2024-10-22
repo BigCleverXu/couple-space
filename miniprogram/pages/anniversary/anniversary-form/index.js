@@ -1,9 +1,9 @@
 // pages/anniversary/anniversary-form/index.js
 import {
-  showMessage,
+  deepClone,
+  urlToObj,
   showToast,
-  hideLoading,
-  deepClone
+  showMessage
 } from '../../../utils/index'
 import {
   Request
@@ -15,7 +15,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: "纪念日",
+    title: "新增纪念日",
     show: false,
     formData: {
       title: "",
@@ -38,10 +38,22 @@ Page({
     _formData.image = this.data.formData.image.map(m => m.url)
     return _formData
   },
-  async submit(e) {
+  async submit() {
     const request = new Request()
     const formData = this.handleFormData()
-    await request.create('anniversary', formData)
+    if (!formData.title) {
+      showMessage({
+        that: this,
+        content: "标题必填",
+        type: "error"
+      })
+      return
+    }
+    if (formData._id) {
+      await request.update('anniversary', formData)
+    } else {
+      await request.create('anniversary', formData)
+    }
     wx.navigateBack()
   },
   delete() {
@@ -54,28 +66,16 @@ Page({
       show: false
     })
   },
-  confirmDialog() {
-    showToast({
-      that: this,
-      theme: "loading",
-      duration: 0,
-      message: "正在删除"
-    })
-    setTimeout(() => {
-      this.closeDialog()
-      hideLoading()
-      showMessage({
-        that: this,
-        content: "删除成功",
-        type: "success"
-      })
-    }, 500)
+  async confirmDialog() {
+    this.closeDialog()
+    const request = new Request()
+    await request.remove('anniversary', this.data.formData._id)
+    wx.navigateBack()
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.init()
     const {
       id
     } = options
@@ -84,12 +84,26 @@ Page({
         title: "编辑纪念日"
       })
     }
+    this.init(id)
   },
-  init() {
-    const dateText = dayjs().format('YYYY-MM-DD')
-    this.setData({
-      'formData.dateText': dateText
-    })
+  async init(id) {
+    if (id) {
+      const request = new Request()
+      const {
+        data
+      } = await request.info('anniversary', id)
+      let formData = deepClone(data)
+      formData.image = urlToObj(data.image)
+      this.setData({
+        formData
+      })
+    } else {
+      const dateText = dayjs().format('YYYY-MM-DD')
+      this.setData({
+        'formData.dateText': dateText
+      })
+    }
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

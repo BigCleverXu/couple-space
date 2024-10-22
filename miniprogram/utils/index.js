@@ -188,9 +188,9 @@ export function getUserByOpenId(arr, openId) {
  */
 export function urlToObj(arr) {
 	const _arr = deepClone(arr)
-	return _arr.map(m => {
+	return _arr.map(url => {
 		return {
-			url: m
+			url
 		}
 	})
 }

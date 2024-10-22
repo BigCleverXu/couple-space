@@ -1,5 +1,5 @@
 <layout back="{{true}}" title="纪念日">
-	<x-card x-class="last-card" wx:if="{{list.length>0}}"> 
+	<x-card x-class="last-card" wx:if="{{list.length>0}}">
 		<view class="title">第一次{{nearInfo.title}}{{nearInfo.isBirth ?'还有': '已有'}}</view>
 		<view class="day">{{nearInfo.diff}} <text class="unit">天</text> </view>
 		<view class="start-date">
@@ -9,7 +9,7 @@
 	</x-card>
 	<view wx:if="{{list.length>0}}">
 		<block wx:for="{{list}}">
-			<x-card x-class="card" bind:tap="toShowInfo" data-id="{{item._id}}">
+			<x-card x-class="card" bind:tap="toShowInfo" data-info="{{item}}" data-id="{{item._id}}">
 				<view class="row">
 					<view class="left">
 						<t-icon wx:if="{{!item.isBirth}}" name="heart" size="48rpx" />
@@ -29,20 +29,20 @@
 	<t-popup visible="{{showDrawer}}" placement="top" usingCustomNavbar bind:visible-change="closeDrawer">
 		<view class="t-popup-container">
 			<x-card x-class="info-card">
-				<view class="title">第一次接吻已有</view>
-				<view class="day">12 <text class="unit">天</text> </view>
+				<view class="title">第一次{{showInfo.title}}{{showInfo.isBirth ?'还有': '已有'}}</view>
+				<view class="day">{{showInfo.diff}} <text class="unit">天</text> </view>
 				<view class="start-date">
 					<text>起始日: </text>
-					<text>2019年12月28日</text>
+					<text>{{showInfo.dateText}}</text>
 				</view>
 			</x-card>
 			<view class="btn-container">
-				<t-button theme="danger" ghost bind:tap="delete" data-id="1">删除</t-button>
-				<t-button theme="primary" bind:tap="toAdd" data-id="1">编辑</t-button>
+				<t-button theme="danger" ghost bind:tap="delete">删除</t-button>
+				<t-button theme="primary" bind:tap="toAdd">编辑</t-button>
 			</view>
 		</view>
 	</t-popup>
 </layout>
 <t-message id="t-message" />
 <t-toast id="t-toast" />
-<t-dialog visible="{{showDialog}}" content="删除后无法恢复，是否确认删除" confirm-btn="{{ { content: '确认', variant: 'base', theme: 'danger' } }}" cancel-btn="取消" bind:confirm="confirmDialog" bind:cancel="closeDialog" usingCustomNavbar show-overlay="{{false}}" />
+<t-dialog close-on-overlay-click visible="{{showDialog}}" content="删除后无法恢复，是否确认删除" confirm-btn="{{ { content: '确认', variant: 'base', theme: 'danger' } }}" cancel-btn="取消" bind:confirm="confirmDialog" bind:cancel="closeDialog" usingCustomNavbar />

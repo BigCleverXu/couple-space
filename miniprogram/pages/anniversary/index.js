@@ -1,9 +1,6 @@
 // pages/anniversary/index.js
 import {
   to,
-  showMessage,
-  showToast,
-  hideLoading,
   deepClone
 } from '../../utils/index'
 import {
@@ -18,11 +15,16 @@ Page({
     showDrawer: false,
     showDialog: false,
     list: [],
-    nearInfo: {}
+    nearInfo: {},
+    showInfo: {},
+    id: ""
   },
-  toShowInfo() {
+  toShowInfo(e) {
+    const showInfo = e.currentTarget.dataset.info
+    // console.log(e);
     this.setData({
-      showDrawer: true
+      showDrawer: true,
+      showInfo
     })
   },
   closeDrawer() {
@@ -30,48 +32,32 @@ Page({
       showDrawer: false
     })
   },
-  toAdd(e) {
-    console.log(e);
-
-    const {
-      id
-    } = e.currentTarget.dataset
+  toAdd() {
     let query = {}
-    if (id) {
+    const {
+      _id
+    } = this.data.nearInfo
+    if (_id) {
       query = {
-        id
+        id: _id
       }
     }
     this.closeDialog()
     this.closeDrawer()
     to("/pages/anniversary/anniversary-form/index", query)
   },
-  delete(e) {
-    const {
-      id
-    } = e.currentTarget.dataset
+  delete() {
     this.setData({
       showDialog: true
     });
     // console.log(e);
   },
-  confirmDialog() {
-    showToast({
-      that: this,
-      theme: "loading",
-      duration: 0,
-      message: "正在删除"
-    })
-    setTimeout(() => {
-      this.closeDialog()
-      this.closeDrawer()
-      hideLoading()
-      showMessage({
-        that: this,
-        content: "删除成功",
-        type: "success"
-      })
-    }, 500)
+  async confirmDialog() {
+    const request = new Request()
+    await request.remove('anniversary', this.data.showInfo._id)
+    this.init()
+    this.closeDialog()
+    this.closeDrawer()
   },
   closeDialog() {
     this.setData({
@@ -84,7 +70,7 @@ Page({
     const _sort = deepClone(res.data).sort((a, b) => a.diff - b.diff) || []
     this.setData({
       list: res.data,
-      nearInfo: _sort[0]
+      nearInfo: _sort.length ? _sort[0] : {}
     })
   },
   /**

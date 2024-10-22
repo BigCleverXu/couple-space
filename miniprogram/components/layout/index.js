@@ -22,6 +22,14 @@ Component({
         title: "",
         description: ""
       }
+    },
+    viewer: {
+      type: Object,
+      value: {
+        current: 1,
+        visible: false,
+        images: []
+      }
     }
   },
 
@@ -34,6 +42,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onCloseViewer() {
+      this.triggerEvent('closeViewer')
+    }
   }
 })

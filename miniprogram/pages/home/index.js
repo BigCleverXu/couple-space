@@ -14,7 +14,12 @@ Page({
       duration: 500,
       interval: 5000,
       current: 1,
-      navigation:{ type: 'dots-bar' } 
+      navigation: {
+        type: 'dots-bar'
+      }
+    },
+    viewerConfig: {
+      visible: false,
     },
     sysInfo: {},
     diff: 0,
@@ -40,13 +45,13 @@ Page({
   },
   onPreview(e) {
     this.setData({
-      visible: true,
-      current: e.detail.index
+      'viewerConfig.visible': true,
+      'viewerConfig.current': e.detail.index
     })
   },
   onClose() {
     this.setData({
-      visible: false,
+      'viewerConfig.visible': false,
     })
   },
   toInfo(e) {
@@ -60,7 +65,8 @@ Page({
       sysInfo.banner = sysInfo.banner.map(m => m.url)
       this.setData({
         sysInfo,
-        diff
+        diff,
+        'viewerConfig.images': sysInfo.banner
       })
     }
     if (userList && userList.length) {

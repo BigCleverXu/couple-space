@@ -12,13 +12,15 @@ Page({
    */
   data: {
     list: [],
-    current: 1,
-    visible: false,
-    images: [],
+    viewer: {
+      current: 1,
+      visible: false,
+      images: [],
+    }
   },
   onClose() {
     this.setData({
-      visible: false
+      ['viewer.visible']: false
     })
   },
   toAdd() {
@@ -30,11 +32,10 @@ Page({
       urls
     } = e.target.dataset
     this.setData({
-      images: urls,
-      current: index + 1,
-      visible: true
+      'viewer.images': urls,
+      'viewer.current': index,
+      'viewer.visible': true
     })
-    // previewByUrl(e)
   },
   async init() {
     const request = new Request()

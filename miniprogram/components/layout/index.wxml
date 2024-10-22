@@ -8,3 +8,4 @@
 		<t-footer text="Copyright created by JackXu"></t-footer>
 	</view>
 </view>
+<t-image-viewer usingCustomNavbar show-index initial-index="{{viewer.current}}" visible="{{viewer.visible}}" images="{{viewer.images}}" bind:close="onCloseViewer"></t-image-viewer>

@@ -23,21 +23,26 @@ Page({
   },
 
   async change(e) {
-    this.setData({
-      ['formData.date']: e.detail.value[0]
+    wx.requestSubscribeMessage({
+      tmplIds: ['K322gM1NrIq6hQm2dTQHCE9BBDWn-jSO7IlS6-tgBxg'],
+    }).then(() => {
+      this.setData({
+        ['formData.date']: e.detail.value[0]
+      })
+      const request = new Request()
+      const sysInfo = this.data.sysInfo
+      let _sysInfo = deepClone(sysInfo)
+      _sysInfo.menstrual = this.data.formData.date
+      if (_sysInfo._id) {
+        _sysInfo.banner = sysInfo.banner.map(m => m.url) || []
+        await request.update('system', _sysInfo)
+      } else {
+        await request.create('system', _sysInfo)
+      }
+      await getSysInfo()
+      this.initDate()
     })
-    const request = new Request()
-    const sysInfo = this.data.sysInfo
-    let _sysInfo = deepClone(sysInfo)
-    _sysInfo.menstrual = this.data.formData.date
-    if (_sysInfo._id) {
-      _sysInfo.banner = sysInfo.banner.map(m => m.url) || []
-      await request.update('system', _sysInfo)
-    } else {
-      await request.create('system', _sysInfo)
-    }
-    await getSysInfo()
-    this.initDate()
+
   },
   initDate() {
     const sysInfo = wx.getStorageSync('sysInfo') || {}

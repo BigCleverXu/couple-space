@@ -14,7 +14,11 @@ exports.main = async (event, context) => {
 	const action = event.action
 	try {
 		if (action == 'list') {
-			let res = await db.collection('dayil').get()
+			const query = event.data || {}
+			let res = await db.collection('dayil').where({
+				...query,
+				_openid: wxContext.OPENID
+			}).get()
 			const _res = _.cloneDeep(res)
 			_res.data.forEach(item => {
 				item.createText = dayjs(item.createdAt).format('YYYY-MM-DD')

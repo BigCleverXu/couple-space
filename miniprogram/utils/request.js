@@ -7,7 +7,7 @@ export class Request {
 	constructor(that) {
 		this.that = that;
 	}
-	list(type, query) {
+	list(type, query = {}) {
 		return new Promise((resolve) => {
 			showLoading(this.that, "正在获取")
 			wx.cloud.callFunction({

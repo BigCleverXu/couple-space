@@ -43,11 +43,4 @@ exports.main = async (event, context) => {
   } catch (error) {
     return response.fail(JSON.stringify(error))
   }
-  // return {
-  //   rep: rep.success("666"),
-  //   event,
-  //   openid: wxContext.OPENID,
-  //   appid: wxContext.APPID,
-  //   unionid: wxContext.UNIONID,
-  // }
 }

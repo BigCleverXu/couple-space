@@ -1,5 +1,14 @@
 // pages/assistant/index.js
 const dayjs = require('dayjs')
+import {
+  deepClone
+} from '../../utils/index'
+import {
+  Request
+} from '../../utils/request'
+import {
+  getSysInfo
+} from '../../utils/system'
 Page({
 
   /**
@@ -7,19 +16,36 @@ Page({
    */
   data: {
     formData: {
-      date: "9"
+      date: 1
     },
     date: new Date().getTime(),
-    minDate: new Date("2024-10-01").getTime()
+    minDate: new Date("2024-01-01").getTime()
   },
-  change(e) {
+
+  async change(e) {
     this.setData({
       ['formData.date']: e.detail.value[0]
     })
+    const request = new Request()
+    const sysInfo = this.data.sysInfo
+    let _sysInfo = deepClone(sysInfo)
+    _sysInfo.menstrual = this.data.formData.date
+    if (_sysInfo._id) {
+      _sysInfo.banner = sysInfo.banner.map(m => m.url) || []
+      await request.update('system', _sysInfo)
+    } else {
+      await request.create('system', _sysInfo)
+    }
+    await getSysInfo()
     this.initDate()
-    // console.log(e.detail);
   },
   initDate() {
+    const sysInfo = wx.getStorageSync('sysInfo') || {}
+    this.setData({
+      sysInfo,
+      minDate: dayjs().startOf('month').valueOf(),
+      'formData.date': sysInfo.menstrual
+    })
     /**
      * 判断当月是否有31号如果有就从31号开始往后数7天
      * 如果没有就从下月1号开始往后数7天
@@ -41,7 +67,7 @@ Page({
       //判断二月的日期
       const hasDate = ['29', '30', '31'].includes(date)
       if (month == '02' && hasDate) {
-        fullYear = dayjs(`${year}-${month}`).startOf('month').add(1,'month')
+        fullYear = dayjs(`${year}-${month}`).startOf('month').add(1, 'month')
       }
       for (let j = 0; j < 7; j++) {
         arr.push({
@@ -50,6 +76,7 @@ Page({
         })
       }
     }
+    console.log(arr);
     this.setData({
       format: (day) => {
         const {

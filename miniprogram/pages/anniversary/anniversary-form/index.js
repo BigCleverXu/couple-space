@@ -8,7 +8,7 @@ import {
 import {
   Request
 } from '../../../utils/request'
-import dayjs from '../../../miniprogram_npm/dayjs/index'
+const dayjs = require('dayjs')
 Page({
 
   /**

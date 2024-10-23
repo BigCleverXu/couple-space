@@ -16,6 +16,10 @@ Component({
     hasDay: {
       type: Boolean,
       value: true
+    },
+    defaultValue: {
+      type: Array,
+      value: []
     }
   },
 

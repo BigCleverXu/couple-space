@@ -2,7 +2,7 @@
 import {
   to
 } from '../../utils/index'
-import dayjs from '../../miniprogram_npm/dayjs/index'
+const dayjs = require('dayjs')
 Page({
 
   /**

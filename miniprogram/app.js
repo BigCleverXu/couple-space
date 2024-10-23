@@ -1,8 +1,9 @@
 // app.js
 import {
-  getUserByOpenId,
-  urlToObj
-} from './utils/index'
+  getOpenId,
+  getSysInfo,
+  getUserList
+} from './utils/system'
 App({
   onLaunch: function () {
     if (!wx.cloud) {
@@ -16,66 +17,11 @@ App({
         env: 'love-5gwx8a4pd67d3c1a',
         traceUser: true,
       });
-      this.getOpenId()
-      this.getSysInfo()
-      this.getUserList()
+      getOpenId()
+      getSysInfo()
+      getUserList()
     }
     this.globalData = {};
   },
-  getOpenId() {
-    const openId = wx.getStorageSync('openId') || false
-    if (!openId) {
-      wx.cloud.callFunction({
-        name: "cloudFunctions",
-        data: {
-          type: "openId"
-        }
-      }).then(({
-        result
-      }) => {
-        if (result.success) {
-          wx.setStorageSync('openId', result.data.openId)
-        }
-      })
-    }
 
-  },
-  getUserList() {
-    wx.cloud.callFunction({
-      name: "cloudFunctions",
-      data: {
-        type: "user",
-        action: "all"
-      }
-    }).then(({
-      result
-    }) => {
-      if (result.success) {
-        const userList = result.data.data
-        wx.setStorageSync('userList', userList)
-        const userInfo = getUserByOpenId(result.data.data, wx.getStorageSync('openId'))
-        wx.setStorageSync('userInfo', userInfo)
-      }
-    })
-  },
-  getSysInfo() {
-    wx.cloud.callFunction({
-      name: "cloudFunctions",
-      data: {
-        type: "system",
-        action: "getOne"
-      }
-    }).then(({
-      result
-    }) => {
-      if (result.success) {
-        console.log(result.data);
-        const sysInfo = result.data.data[0]
-        if (result.data.data.length) {
-          sysInfo.banner = urlToObj(result.data.data[0].banner)
-        }
-        wx.setStorageSync('sysInfo', sysInfo)
-      }
-    })
-  }
 });

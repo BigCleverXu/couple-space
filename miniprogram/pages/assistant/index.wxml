@@ -1,4 +1,6 @@
 <layout back="{{true}}" title="月经助手">
-	<x-date-picker hasMonth="{{false}}" bind:change="change"></x-date-picker>
+	<x-date-picker hasMonth="{{false}}" bind:change="change" default-value="{{[formData.date]}}"></x-date-picker>
 	<t-calendar using-custom-navbar default-value="{{date}}" min-date="{{minDate}}" format="{{format}}" title="日期" use-popup="{{false}}" />
 </layout>
+<t-message id="t-message" />
+<t-toast id="t-toast" />

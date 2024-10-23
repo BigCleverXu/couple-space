@@ -1,6 +1,6 @@
 // pages/setting/system/index.js
 const app = getApp()
-import dayjs from '../../../miniprogram_npm/dayjs/index'
+const dayjs = require('dayjs')
 import {
   Request
 } from '../../../utils/request'

@@ -18,14 +18,15 @@ Page({
     formData: {
       date: 1
     },
+    sysInfo: {},
     date: new Date().getTime(),
     minDate: new Date("2024-01-01").getTime()
   },
 
   async change(e) {
     wx.requestSubscribeMessage({
-      tmplIds: ['K322gM1NrIq6hQm2dTQHCE9BBDWn-jSO7IlS6-tgBxg'],
-    }).then(() => {
+      tmplIds: ['K322gM1NrIq6hQm2dTQHCAJfaC0tq-WBAuOawhtayYA'],
+    }).then(async () => {
       this.setData({
         ['formData.date']: e.detail.value[0]
       })

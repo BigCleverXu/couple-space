@@ -28,7 +28,6 @@
 	flex: 1;
 	height: 229rpx;
 	box-sizing: border-box;
-	padding-left: 20rpx;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -103,13 +102,6 @@
 	height: 2rpx;
 }
 
-.linwidth227 {
-	width: 227rpx;
-}
-
-.linwidth160 {
-	width: 160rpx;
-}
 
 .text {
 	font-size: 96rpx;
@@ -145,7 +137,6 @@
 }
 .vname-box {
 	text-align: center;
-	width: 227rpx;
 	margin: 10rpx 0;
 }
 

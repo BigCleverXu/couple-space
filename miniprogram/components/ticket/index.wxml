@@ -10,15 +10,13 @@
 	<view class="split-line"></view>
 	<!-- 右侧box -->
 	<view class="tip">
-		<view class="oilline linwidth227 lineBt"></view>
-		<view class="vname-box">
-			<view class="couponmaes">{{info.itemName}}</view>
-			<view class="overdate">{{info.start}}~{{info.end}}</view>
+		<view class="vname-box" style="{{active ?'':'margin:0 auto'}}">
+			<view class="couponmaes">{{info.name}}</view>
+			<view class="overdate">{{info.startDateText}}~{{info.endDateText}}</view>
 		</view>
-		<view class="oilline linwidth227 lineBt"></view>
-		<view class="btnbx   {{info.active ? 'animation':''  }}">
-			<view class="btnw {{info.active ? 'btn-active':'btn-gray'  }}">
-				<view class="btnn" data-id="{{info.id}}" bindtap="submitCilck">马上使用</view>
+		<view class="btnbx  animation" wx:if="{{active}}">
+			<view class="btnw btn-active">
+				<view class="btnn" data-id="{{info._id}}" bindtap="submitCilck">马上使用</view>
 			</view>
 		</view>
 	</view>

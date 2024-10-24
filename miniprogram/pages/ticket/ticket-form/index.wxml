@@ -1,5 +1,5 @@
 <layout title="为TA创建卡券" back status="{{status}}">
-	<t-input label="券名" align="right" value="{{formData.title}}" placeholder="请输入" data-name="title" bind:change="change" />
+	<t-input label="券名" align="right" value="{{formData.name}}" placeholder="请输入" data-name="name" bind:change="change" />
 	<x-date-time title="开始日期" date="{{formData.startDate}}" dateText="{{formData.startDateText}}" bind:change="change" data-name="startDate" />
 	<x-date-time title="结束日期" date="{{formData.endDate}}" dateText="{{formData.endDateText}}" bind:change="change" data-name="endDate" />
 	<t-input label="数量" placeholder="发布数量" suffix="张" align="right" type="number" bind:change="change" data-name="size" value="{{formData.size}}" />

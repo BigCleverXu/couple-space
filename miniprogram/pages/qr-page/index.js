@@ -15,6 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const {
+      id
+    } = options
     showToast({
       that: this,
       theme: "loading",
@@ -23,10 +26,9 @@ Page({
     })
     //option为上个页面传递过来的参数
     setTimeout(() => {
-      const jiaoyanCode = 'sorry,jiaoyanCode is loss';
-      console.log(jiaoyanCode);
+      console.log(id);
       const size = this.setCanvasSize(); //动态设置画布大小	
-      this.createQrCode(jiaoyanCode, "canvas", size.w, size.h);
+      this.createQrCode(id, "canvas", size.w, size.h);
     }, 500)
   },
 

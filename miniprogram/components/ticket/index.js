@@ -8,16 +8,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    active: {
+      type: Boolean,
+      value: true
+    },
     info: {
       type: Object,
-      value: {
-        id: "1",
-        itemName: "捶背券",
-        active: true,
-        size: 5,
-        start: "2024-08-01",
-        end: "2024-09-01"
-      }
+      value: {}
     }
   },
 

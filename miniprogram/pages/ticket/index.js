@@ -2,27 +2,55 @@
 import {
   to
 } from '../../utils/index'
+import {
+  Request
+} from '../../utils/request'
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    defaultTab: '0',
+    list: []
+  },
   toAdd() {
     to('/pages/ticket/ticket-form/index')
   },
   onTabsChange(event) {
-    console.log(`Change tab, tab-panel value is ${event.detail.value}.`);
+    this.setData({
+      defaultTab: event.detail.value
+    })
+    this.getTicketsList()
   },
+  async getTicketsList() {
+    if (this.data.defaultTab == '0') {
+      const openId = wx.getStorageSync('openId')
+      const request = new Request()
+      const res = await request.list('ticket', {
+        hasUser: openId
+      })
+      this.setData({
+        list: res.data
+      })
+    }
+    if (this.data.defaultTab == '1') {
+      const openId = wx.getStorageSync('openId')
+      const request = new Request()
+      const res = await request.list('ticket', {
+        _openid: openId
+      })
+      this.setData({
+        list: res.data
+      })
+    }
 
-  onTabsClick(event) {
-    console.log(`Click tab, tab-panel value is ${event.detail.value}.`);
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getTicketsList()
   },
 
   /**

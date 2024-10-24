@@ -1,8 +1,11 @@
 // pages/ticket/ticket-form/index.js
+const dayjs = require('dayjs')
 import {
-  showMessage,
-  showToast,
-  hideLoading
+  Request
+} from '../../../utils/request'
+import {
+  deepClone,
+  showMessage
 } from '../../../utils/index'
 Page({
 
@@ -12,31 +15,41 @@ Page({
   data: {
     status: {},
     formData: {
-      title: "",
+      name: "",
       startDate: new Date().getTime(),
       startDateText: "",
       endDate: new Date().getTime(),
       endDateText: "",
       size: 1,
-      remark: ""
+      useSize: 0,
+      remark: "",
+      hasUser: ""
     }
   },
-  submit() {
-    const that = this
-    showToast({
-      that,
-      theme: "loading",
-      message: "正在提交",
-      duration: 0
-    })
-    setTimeout(() => {
-      hideLoading()
+  async submit() {
+    const formData = this.data.formData
+    if (!formData.name) {
       showMessage({
-        that,
-        content: "成功",
+        that: this,
+        content: "券名必填",
+        type: "error"
       })
-    }, 1000)
-    // wx.navigateBack()
+      return
+    }
+    if (!formData.size) {
+      showMessage({
+        that: this,
+        content: "数量必填",
+        type: "error"
+      })
+      return
+    }
+    let _formData = deepClone(formData)
+    _formData.startDate = dayjs(formData.startDate).startOf('day').valueOf()
+    _formData.endDate = dayjs(formData.endDate).endOf('day').valueOf()
+    const request = new Request()
+    await request.create('ticket', formData)
+    wx.navigateBack()
   },
   change(e) {
     const value = e.detail.value ?? e.detail
@@ -46,11 +59,22 @@ Page({
       [key]: value
     })
   },
+  init() {
+    const userList = wx.getStorageSync('userList') || []
+    const openId = wx.getStorageSync('openId')
+    const user = userList.find(f => f._openid != openId) || {}
+    this.setData({
+      'formData.hasUser': user._openid,
+      'formData.startDateText': dayjs().format('YYYY-MM-DD'),
+      'formData.endDateText': dayjs().format('YYYY-MM-DD')
+    })
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.init()
   },
 
   /**

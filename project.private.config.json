@@ -8,6 +8,20 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/ticket/index",
+          "pathName": "pages/ticket/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/ticket/ticket-form/index",
+          "pathName": "pages/ticket/ticket-form/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/diary/index",
           "pathName": "pages/diary/index",
           "query": "",

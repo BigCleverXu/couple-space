@@ -1,4 +1,5 @@
 // pages/ticket/index.js
+import Toast from 'tdesign-miniprogram/toast/index';
 import {
   to
 } from '../../utils/index'
@@ -6,7 +7,6 @@ import {
   Request
 } from '../../utils/request'
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -16,6 +16,19 @@ Page({
   },
   toAdd() {
     to('/pages/ticket/ticket-form/index')
+  },
+  toScan() {
+    const that = this
+    wx.scanCode({
+      onlyFromCamera: true,
+    }).then(res => {
+      Toast({
+        context: that,
+        selector: '#t-toast',
+        message: '扫码成功',
+      });
+      console.log(res.result)
+    })
   },
   onTabsChange(event) {
     this.setData({

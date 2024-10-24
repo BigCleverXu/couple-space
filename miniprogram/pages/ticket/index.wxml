@@ -23,6 +23,7 @@
 			</view>
 		</t-tab-panel>
 	</t-tabs>
+	<t-fab using-custom-navbar icon="scan" draggable y-bounds="{{[0, 200]}}" bind:click="toScan"></t-fab>
 	<t-fab using-custom-navbar icon="add" draggable y-bounds="{{[0, 132]}}" bind:click="toAdd"></t-fab>
 </layout>
 <t-message id="t-message" />

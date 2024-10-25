@@ -1,10 +1,10 @@
 <view class="wrapper">
 	<!-- 左侧box -->
 	<view class="content">
-		<view class="coupon-count">{{info.size}}张</view>
-		<view class="oilline linwidth160 lineBt"></view>
+		<view class="coupon-count" wx:if="{{active}}">{{info.size-info.useSize}}张</view>
+		<view class="oilline"></view>
 		<text class="text">券</text>
-		<view class="oilline  linwidth160 lineBt"></view>
+		<view class="oilline"></view>
 	</view>
 
 	<view class="split-line"></view>

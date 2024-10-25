@@ -1,5 +1,8 @@
 // pages/ticket/index.js
-import Toast from 'tdesign-miniprogram/toast/index';
+import Toast, {
+  hideToast
+} from 'tdesign-miniprogram/toast/index';
+import Message from 'tdesign-miniprogram/message/index';
 import {
   to
 } from '../../utils/index'
@@ -17,18 +20,55 @@ Page({
   toAdd() {
     to('/pages/ticket/ticket-form/index')
   },
-  toScan() {
-    const that = this
-    wx.scanCode({
-      onlyFromCamera: true,
-    }).then(res => {
+  checkOut(ticketId) {
+    return new Promise((resolve) => {
       Toast({
-        context: that,
+        context: this,
+        theme: 'loading',
         selector: '#t-toast',
-        message: '扫码成功',
+        direction: 'column',
+        message: '正在验票',
       });
-      console.log(res.result)
+      wx.cloud.callFunction({
+        name: "cloudFunctions",
+        data: {
+          type: "ticket",
+          action: "check",
+          data: {
+            _id: ticketId
+          }
+        }
+      }).then(({
+        result
+      }) => {
+        hideToast()
+        if (!result.success) {
+          Message.error({
+            context: this,
+            offset: [90, 32],
+            duration: 3000,
+            content: result.data,
+          });
+          resolve(false)
+        } else {
+          Message.success({
+            context: this,
+            offset: [90, 32],
+            duration: 3000,
+            content: "验票成功",
+          });
+          resolve(true)
+        }
+      })
     })
+
+  },
+  async toScan() {
+    const res = await wx.scanCode({
+      onlyFromCamera: true,
+    })
+    await this.checkOut(res.result)
+    this.getTicketsList()
   },
   onTabsChange(event) {
     this.setData({
@@ -41,7 +81,8 @@ Page({
       const openId = wx.getStorageSync('openId')
       const request = new Request()
       const res = await request.list('ticket', {
-        hasUser: openId
+        hasUser: openId,
+        self: true
       })
       this.setData({
         list: res.data

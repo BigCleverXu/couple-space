@@ -23,7 +23,7 @@ exports.main = async (event, context) => {
     const today = dayjs().get('D')
     const startDate = sysObj.menstrual
     const endDate = dayjs(`${dayjs().format('YYYY-MM')}-${startDate}`).add(7, 'day').get('D')
-    if (!startDate) return response.success('日期未到')
+    if (!startDate) return response.success('未配置日期')
     const isEnd = endDate == today
     const isStart = startDate == today
     if (isEnd || isStart) {
@@ -54,6 +54,7 @@ exports.main = async (event, context) => {
       }
       return response.success('发送成功')
     }
+    return response.success('未到配置日期')
   } catch (error) {
     return response.success(error)
   }

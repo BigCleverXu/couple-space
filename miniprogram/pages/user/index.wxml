@@ -21,6 +21,8 @@
 	<view class="body">
 		<t-cell leftIcon="user-setting" title="个人设置" hover arrow url="/pages/setting/user/index" />
 		<t-cell leftIcon="setting-1" title="系统设置" hover arrow url="/pages/setting/system/index" />
+		<t-cell leftIcon="clear" title="清理缓存" hover arrow bind:tap="clear" />
+
 	</view>
 	<!-- <x-card x-class="container">
 		<view class="item">

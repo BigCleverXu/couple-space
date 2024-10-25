@@ -1,4 +1,9 @@
 // pages/user/index.js
+import {
+  getSysInfo,
+  getUserList,
+  getOpenId
+} from '../../utils/system'
 const app = getApp()
 Page({
 
@@ -9,7 +14,12 @@ Page({
     userInfo: {},
     isSetting: false
   },
-
+  async clear() {
+    wx.clearStorageSync()
+    await getOpenId()
+    await getSysInfo()
+    await getUserList()
+  },
   /**
    * 生命周期函数--监听页面加载
    */

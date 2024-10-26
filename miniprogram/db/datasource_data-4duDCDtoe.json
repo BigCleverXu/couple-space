@@ -1,0 +1,203 @@
+{
+    "previewTableName": "anniversary-preview",
+    "publishCacheStatus": "ready",
+    "subType": "database",
+    "schema": {
+        "x-primary-column": "_id",
+        "x-kind": "tcb",
+        "x-defaultMethods": [
+            "wedaCreate",
+            "wedaUpdate",
+            "wedaDelete",
+            "wedaGetItem",
+            "wedaGetRecords",
+            "wedaGetList",
+            "wedaBatchCreate",
+            "wedaBatchUpdate",
+            "wedaBatchDelete"
+        ],
+        "type": "object",
+        "x-relatedType": "exist",
+        "x-viewId": "view-643l1jzy4g",
+        "required": [
+            "title"
+        ],
+        "properties": {
+            "date": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "a43d7f7e",
+                "format": "date",
+                "description": "",
+                "type": "number",
+                "x-index": 6,
+                "title": "日期",
+                "x-unique": false
+            },
+            "owner": {
+                "default": "",
+                "x-system": true,
+                "x-id": "609145b",
+                "name": "owner",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 4,
+                "title": "所有人",
+                "type": "string",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "image": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "32515593",
+                "format": "",
+                "description": "",
+                "type": "array",
+                "x-index": 8,
+                "title": "图片",
+                "items": {
+                    "x-image-size": 5242880,
+                    "format": "x-image",
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "createdAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "e196ec8",
+                "format": "datetime",
+                "x-index": 2,
+                "type": "number",
+                "title": "创建时间",
+                "x-unique": false
+            },
+            "createBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "f6d54c4",
+                "name": "createBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 5,
+                "type": "string",
+                "title": "创建人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "updateBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "93a079a",
+                "name": "updateBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 6,
+                "type": "string",
+                "title": "修改人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "_departmentList": {
+                "default": "",
+                "x-system": true,
+                "x-id": "4b62528",
+                "format": "",
+                "name": "_departmentList",
+                "title": "所属部门",
+                "type": "array",
+                "x-index": 7,
+                "items": {
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "_openid": {
+                "default": "",
+                "x-system": true,
+                "x-id": "86b5c1a",
+                "name": "_openid",
+                "format": "",
+                "pattern": "",
+                "description": "仅微信云开发下使用",
+                "x-index": 45,
+                "title": "记录创建者",
+                "type": "string",
+                "x-unique": false
+            },
+            "isBirth": {
+                "x-required": false,
+                "default": false,
+                "x-keyPath": "",
+                "x-id": "da995813",
+                "format": "",
+                "description": "",
+                "type": "boolean",
+                "x-index": 4,
+                "title": "是否生日",
+                "x-unique": false
+            },
+            "_id": {
+                "default": "",
+                "x-system": true,
+                "x-id": "6a685ea",
+                "format": "",
+                "pattern": "",
+                "x-index": 1,
+                "type": "string",
+                "title": "数据标识",
+                "x-unique": true
+            },
+            "title": {
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "bc41ba55",
+                "format": "",
+                "name": "title",
+                "description": "",
+                "isEnum": false,
+                "type": "string",
+                "x-index": 2,
+                "title": "标题",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "updatedAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "ad0a59d",
+                "format": "datetime",
+                "x-index": 3,
+                "title": "更新时间",
+                "type": "number",
+                "x-unique": false
+            }
+        }
+    },
+    "dbInstanceType": "FLEXDB",
+    "title": "纪念日",
+    "name": "anniversary",
+    "dbLinkType": "internal",
+    "tableNameRule": "only_name",
+    "type": "database",
+    "updateTime": "2024-10-22T12:21:30",
+    "publishedTableName": "anniversary",
+    "id": "data-4duDCDtoe",
+    "methods": [],
+    "fun": "{\"onlineVersion\": 4, \"previewVersion\": 3, \"onlinePublishAt\": 1729599690703, \"prviewPublishAt\": 1729599690479}",
+    "publishStatus": 1,
+    "configuration": {}
+}

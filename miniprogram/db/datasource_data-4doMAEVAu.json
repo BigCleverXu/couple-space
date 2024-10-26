@@ -1,0 +1,191 @@
+{
+    "previewTableName": "system-preview",
+    "publishCacheStatus": "ready",
+    "subType": "database",
+    "schema": {
+        "x-primary-column": "_id",
+        "x-kind": "tcb",
+        "x-defaultMethods": [
+            "wedaCreate",
+            "wedaUpdate",
+            "wedaDelete",
+            "wedaGetItem",
+            "wedaGetRecords",
+            "wedaGetList",
+            "wedaBatchCreate",
+            "wedaBatchUpdate",
+            "wedaBatchDelete"
+        ],
+        "type": "object",
+        "x-relatedType": "exist",
+        "x-viewId": "view-640fe7q9gg",
+        "required": [],
+        "properties": {
+            "owner": {
+                "default": "",
+                "x-system": true,
+                "x-id": "c9c1537",
+                "name": "owner",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 4,
+                "title": "所有人",
+                "type": "string",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "createdAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "54fe891",
+                "format": "datetime",
+                "x-index": 2,
+                "type": "number",
+                "title": "创建时间",
+                "x-unique": false
+            },
+            "createBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "8b2f180",
+                "name": "createBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 5,
+                "type": "string",
+                "title": "创建人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "updateBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "93a079a",
+                "name": "updateBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 6,
+                "type": "string",
+                "title": "修改人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "_departmentList": {
+                "default": "",
+                "x-system": true,
+                "x-id": "3faa9fa",
+                "format": "",
+                "name": "_departmentList",
+                "title": "所属部门",
+                "type": "array",
+                "x-index": 7,
+                "items": {
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "_openid": {
+                "default": "",
+                "x-system": true,
+                "x-id": "ec9bd31",
+                "name": "_openid",
+                "format": "",
+                "pattern": "",
+                "description": "仅微信云开发下使用",
+                "x-index": 45,
+                "title": "记录创建者",
+                "type": "string",
+                "x-unique": false
+            },
+            "banner": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "d1931175",
+                "format": "",
+                "description": "",
+                "type": "array",
+                "x-index": 2,
+                "title": "轮播图",
+                "items": {
+                    "x-image-size": 5242880,
+                    "format": "x-image",
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "menstrual": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "37acbbea",
+                "format": "",
+                "numberCount": 0,
+                "maximum": 31,
+                "description": "",
+                "type": "number",
+                "x-index": 47,
+                "title": "月经日",
+                "minimum": 1,
+                "x-unique": false
+            },
+            "_id": {
+                "default": "",
+                "x-system": true,
+                "x-id": "43ea783",
+                "format": "",
+                "pattern": "",
+                "x-index": 1,
+                "type": "string",
+                "title": "数据标识",
+                "x-unique": true
+            },
+            "startDate": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "2a81f7b6",
+                "format": "date",
+                "name": "startDate",
+                "description": "",
+                "isEnum": false,
+                "type": "number",
+                "x-index": 4,
+                "title": "开始日期",
+                "x-unique": false
+            },
+            "updatedAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "09d9b53",
+                "format": "datetime",
+                "x-index": 3,
+                "title": "更新时间",
+                "type": "number",
+                "x-unique": false
+            }
+        }
+    },
+    "dbInstanceType": "FLEXDB",
+    "title": "系统",
+    "name": "system",
+    "dbLinkType": "internal",
+    "tableNameRule": "only_name",
+    "type": "database",
+    "updateTime": "2024-10-23T12:04:37",
+    "publishedTableName": "system",
+    "id": "data-4doMAEVAu",
+    "methods": [],
+    "fun": "{\"onlineVersion\": 4, \"previewVersion\": 3, \"onlinePublishAt\": 1729685077675, \"prviewPublishAt\": 1729685077414}",
+    "publishStatus": 1,
+    "configuration": {}
+}

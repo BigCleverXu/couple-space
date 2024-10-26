@@ -1,0 +1,218 @@
+{
+    "previewTableName": "user-preview",
+    "publishCacheStatus": "ready",
+    "subType": "database",
+    "schema": {
+        "x-primary-column": "_id",
+        "x-kind": "tcb",
+        "x-defaultMethods": [
+            "wedaCreate",
+            "wedaUpdate",
+            "wedaDelete",
+            "wedaGetItem",
+            "wedaGetRecords",
+            "wedaGetList",
+            "wedaBatchCreate",
+            "wedaBatchUpdate",
+            "wedaBatchDelete"
+        ],
+        "type": "object",
+        "x-relatedType": "exist",
+        "x-viewId": "view-63yc2v37ts",
+        "required": [],
+        "properties": {
+            "owner": {
+                "default": "",
+                "x-system": true,
+                "x-id": "829b823",
+                "name": "owner",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 4,
+                "title": "所有人",
+                "type": "string",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "_departmentList": {
+                "default": "",
+                "x-system": true,
+                "x-id": "1b12500",
+                "format": "",
+                "name": "_departmentList",
+                "title": "所属部门",
+                "type": "array",
+                "x-index": 7,
+                "items": {
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "sex": {
+                "x-keyPath": "",
+                "x-id": "9b1cc64b",
+                "format": "x-enum",
+                "description": "",
+                "x-option-name": "xb",
+                "type": "string",
+                "x-index": 51,
+                "title": "性别",
+                "x-unique": false,
+                "x-required": false,
+                "default": "MALE",
+                "x-enum-type": "general-option",
+                "x-multi-select": false
+            },
+            "avatar": {
+                "x-image-size": 5242880,
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "443acfe5",
+                "format": "x-image",
+                "description": "",
+                "type": "string",
+                "x-index": 4,
+                "title": "头像",
+                "x-unique": false
+            },
+            "createdAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "cbdafbc",
+                "format": "datetime",
+                "x-index": 2,
+                "type": "number",
+                "title": "创建时间",
+                "x-unique": false
+            },
+            "createBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "1113a89",
+                "name": "createBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 5,
+                "type": "string",
+                "title": "创建人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "updateBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "93a079a",
+                "name": "updateBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 6,
+                "type": "string",
+                "title": "修改人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "_openid": {
+                "default": "",
+                "x-system": true,
+                "x-id": "bfb4535",
+                "name": "_openid",
+                "format": "",
+                "pattern": "",
+                "description": "仅微信云开发下使用",
+                "x-index": 45,
+                "title": "记录创建者",
+                "type": "string",
+                "x-unique": false
+            },
+            "nickname": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "68aeb766",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 47,
+                "title": "昵称",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "tip": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "238ad5e3",
+                "format": "",
+                "name": "tip",
+                "description": "",
+                "isEnum": false,
+                "type": "string",
+                "x-index": 53,
+                "title": "说说",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "_id": {
+                "default": "",
+                "x-system": true,
+                "x-id": "a227dd8",
+                "format": "",
+                "pattern": "",
+                "x-index": 1,
+                "type": "string",
+                "title": "数据标识",
+                "x-unique": true
+            },
+            "updatedAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "36fe909",
+                "format": "datetime",
+                "x-index": 3,
+                "title": "更新时间",
+                "type": "number",
+                "x-unique": false
+            },
+            "direction": {
+                "x-keyPath": "",
+                "x-id": "feaf6663",
+                "format": "x-enum",
+                "description": "",
+                "isEnum": false,
+                "x-option-name": "fx",
+                "type": "string",
+                "x-index": 49,
+                "title": "方向",
+                "x-unique": false,
+                "x-required": false,
+                "default": "LEFT",
+                "x-enum-type": "general-option",
+                "name": "direction",
+                "x-multi-select": false
+            }
+        }
+    },
+    "dbInstanceType": "FLEXDB",
+    "title": "用户",
+    "name": "user",
+    "dbLinkType": "internal",
+    "tableNameRule": "only_name",
+    "type": "database",
+    "updateTime": "2024-10-19T12:14:39",
+    "publishedTableName": "user",
+    "id": "data-4djUgUFXT",
+    "methods": [],
+    "fun": "{\"onlineVersion\": 20, \"previewVersion\": 19, \"onlinePublishAt\": 1729340079010, \"prviewPublishAt\": 1729340078741}",
+    "publishStatus": 1,
+    "configuration": {}
+}

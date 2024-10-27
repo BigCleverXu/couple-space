@@ -33,6 +33,11 @@ Page({
     })
   },
   toAdd() {
+    this.closeDialog()
+    this.closeDrawer()
+    to("/pages/anniversary/anniversary-form/index")
+  },
+  toEdit() {
     let query = {}
     const {
       _id

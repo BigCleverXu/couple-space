@@ -20,10 +20,10 @@ export class Request {
 			}).then(res => {
 				hideLoading();
 				if (res.result.success) {
-					showMessage({
-						that: this.that,
-						content: "获取成功"
-					})
+					// showMessage({
+					// 	that: this.that,
+					// 	content: "获取成功"
+					// })
 					resolve(res.result.data)
 				} else {
 					showMessage({

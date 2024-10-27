@@ -61,6 +61,8 @@ exports.main = async (event, context) => {
         data: tick
       } = await db.collection('ticket').doc(tickId).get()
       console.log(tick);
+      if (dayjs().isBefore(tick.startDate)) return response.fail('未到使用时间')
+      if (dayjs().isAfter(tick.startDate)) return response.fail('已过期')
       if (tick.hasUser != wxContext.OPENID) return response.fail('只能使用自己的卡券')
       if (tick.useSize >= tick.size) return response.fail('没有剩余的卡券')
       const useSize = tick.useSize + 1
